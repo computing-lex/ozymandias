@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bku5eb3s7nplv"]
 
-[ext_resource type="Script" uid="uid://6tfinsa0c332" path="res://checkpoint.gd" id="1_3v702"]
+[ext_resource type="Script" uid="uid://6tfinsa0c332" path="res://scripts/checkpoint.gd" id="1_3v702"]
 [ext_resource type="Texture2D" uid="uid://bo6w7k8et1ckp" path="res://assets/textures/green.png" id="2_s4268"]
 
 [node name="Checkpoint" type="Node2D" groups=["Checkpoints"]]

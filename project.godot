@@ -26,6 +26,8 @@ window/stretch/mode="viewport"
 Normal_Only=""
 Dev_Only=""
 Checkpoints=""
+Enemies=""
+Spawner=""
 
 [input]
 
