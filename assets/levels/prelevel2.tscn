@@ -1,0 +1,171 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmja0lh4qqp8l"]
+
+[ext_resource type="Script" uid="uid://dh65rgw3c6uo5" path="res://scripts/prelevel2.gd" id="1_tmwn6"]
+[ext_resource type="Texture2D" uid="uid://vyqe2oc17ctb" path="res://assets/textures/black21.png" id="2_oqcg1"]
+[ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="3_hp0yp"]
+
+[sub_resource type="Animation" id="Animation_jp2hu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RichTextLabel4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ghl75"]
+resource_name = "reveal"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RichTextLabel4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jp2hu"]
+_data = {
+&"RESET": SubResource("Animation_jp2hu"),
+&"reveal": SubResource("Animation_ghl75")
+}
+
+[node name="prelevel2" type="Node2D"]
+script = ExtResource("1_tmwn6")
+
+[node name="Black21" type="Sprite2D" parent="."]
+position = Vector2(160, 120)
+scale = Vector2(20, 15)
+texture = ExtResource("2_oqcg1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_right = 221.0
+offset_bottom = 160.0
+theme_override_fonts/normal_font = ExtResource("3_hp0yp")
+text = "
+> c://documents/ozymandias/levels/quarry"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+visible = false
+offset_right = 221.0
+offset_bottom = 160.0
+theme_override_fonts/normal_font = ExtResource("3_hp0yp")
+text = "
+
+
+> Last Modified: 1995-10-03"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+visible = false
+offset_right = 221.0
+offset_bottom = 160.0
+theme_override_fonts/normal_font = ExtResource("3_hp0yp")
+text = "
+
+
+
+
+> Proceed ( y / n )"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+visible = false
+offset_right = 221.0
+offset_bottom = 160.0
+theme_override_fonts/normal_font = ExtResource("3_hp0yp")
+text = "
+
+
+
+
+
+
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jp2hu")
+}
