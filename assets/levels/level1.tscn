@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bdhotmdrbc6fx"]
+[gd_scene load_steps=13 format=4 uid="uid://bdhotmdrbc6fx"]
 
 [ext_resource type="Script" uid="uid://dq12x8qd43x2t" path="res://scripts/game.gd" id="1_d7tdo"]
 [ext_resource type="PackedScene" uid="uid://t85uo0d6i33e" path="res://assets/player/player.tscn" id="2_5fint"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://crrves6xa00q2" path="res://testassets/interactable.tscn" id="5_460cx"]
 [ext_resource type="PackedScene" uid="uid://kqemi18vkewi" path="res://assets/entities/normalblock.tscn" id="6_0lc1s"]
 [ext_resource type="PackedScene" uid="uid://t1800mv1fdrt" path="res://assets/entities/devblock.tscn" id="7_gu8wd"]
+[ext_resource type="PackedScene" uid="uid://bku5eb3s7nplv" path="res://assets/entities/checkpoint.tscn" id="8_gu8wd"]
+[ext_resource type="PackedScene" uid="uid://dwdmcdhndqycl" path="res://assets/entities/kill_zone.tscn" id="9_yyv2f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3c2rh"]
 shader = ExtResource("3_460cx")
@@ -62,3 +64,10 @@ position = Vector2(181, -13)
 
 [node name="testblock2" parent="." groups=["Dev_Only"] instance=ExtResource("7_gu8wd")]
 position = Vector2(201, -13)
+
+[node name="Checkpoint" parent="." instance=ExtResource("8_gu8wd")]
+position = Vector2(13, -45)
+
+[node name="KillZone" parent="." instance=ExtResource("9_yyv2f")]
+position = Vector2(567, 182)
+scale = Vector2(60, 1)

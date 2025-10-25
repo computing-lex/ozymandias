@@ -25,6 +25,7 @@ window/stretch/mode="viewport"
 
 Normal_Only=""
 Dev_Only=""
+Checkpoints=""
 
 [input]
 

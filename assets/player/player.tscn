@@ -22,6 +22,8 @@ var In_Interactible = false
 
 var ReadState = 0
 
+var CheckPoint = 0
+
 func _ready():
 	Dialogue.visible = false
 
@@ -94,6 +96,15 @@ func _on_dev_button_pressed() -> void:
 		else:
 			get_parent().Mode = \"Normal\"
 		get_parent().update_mode()
+
+func to_death():
+	death()
+
+func death():
+	for Child in get_parent().get_children():
+		if Child.is_in_group(\"Checkpoints\"):
+			if Child.CheckPoint == CheckPoint:
+				position = Child.position
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
