@@ -24,60 +24,63 @@ var ReadState = 0
 
 var CheckPoint = 0
 
+var dead = false
+
 func _ready():
 	Dialogue.visible = false
 
 func _physics_process(delta: float) -> void:
-	var check = false
-	if Detector.get_overlapping_areas().size() != 0:
-		for Area in Detector.get_overlapping_areas():
-			if Area.is_in_group(\"Interactible\"):
-				In_Interactible = true
-				check = true
-			if check == false:
-				In_Interactible = false
-	else:
-		In_Interactible = false
-	
-	if In_Interactible == true:
-		HeadText.visible = true
-	else:
-		HeadText.visible = false
-	
-	
-	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	if ReadState == 0:
-		if Input.is_action_just_pressed(\"ui_select\"):
-			if In_Interactible == true:
-				ReadState = 1
-				for Area in Detector.get_overlapping_areas():
-					if Area.is_in_group(\"Interactible\"):
-						if Area.get_parent().Use_States == false:
-							display_dialogue_text(Area.get_parent().Text1+\"\\n\\nE - Continue\")
-		
-		# Handle jump.
-		if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
-
-		# Get the input direction and handle the movement/deceleration.
-		# As good practice, you should replace UI actions with custom gameplay actions.
-		var direction := Input.get_axis(\"ui_left\", \"ui_right\")
-		if direction:
-			velocity.x = direction * SPEED
+	if dead == false:
+		var check = false
+		if Detector.get_overlapping_areas().size() != 0:
+			for Area in Detector.get_overlapping_areas():
+				if Area.is_in_group(\"Interactible\"):
+					In_Interactible = true
+					check = true
+				if check == false:
+					In_Interactible = false
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	if ReadState == 2:
-		velocity.x = 0
-		if Input.is_action_just_pressed(\"ui_select\"):
-			Dialogue.visible = false
-			ReadState = 0
-	
-	move_and_slide()
+			In_Interactible = false
+		
+		if In_Interactible == true:
+			HeadText.visible = true
+		else:
+			HeadText.visible = false
+		
+		
+		
+		# Add the gravity.
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+
+		if ReadState == 0:
+			if Input.is_action_just_pressed(\"ui_select\"):
+				if In_Interactible == true:
+					ReadState = 1
+					for Area in Detector.get_overlapping_areas():
+						if Area.is_in_group(\"Interactible\"):
+							if Area.get_parent().Use_States == false:
+								display_dialogue_text(Area.get_parent().Text1+\"\\n\\nE - Continue\")
+			
+			# Handle jump.
+			if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+				velocity.y = JUMP_VELOCITY
+
+			# Get the input direction and handle the movement/deceleration.
+			# As good practice, you should replace UI actions with custom gameplay actions.
+			var direction := Input.get_axis(\"ui_left\", \"ui_right\")
+			if direction:
+				velocity.x = direction * SPEED
+			else:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		if ReadState == 2:
+			velocity.x = 0
+			if Input.is_action_just_pressed(\"ui_select\"):
+				Dialogue.visible = false
+				ReadState = 0
+		
+		move_and_slide()
 
 func display_dialogue_text(dialogue_input):
 	Dialogue.visible = true
@@ -98,6 +101,7 @@ func _on_dev_button_pressed() -> void:
 		get_parent().update_mode()
 
 func to_death():
+	dead = true
 	death()
 
 func death():
@@ -105,6 +109,8 @@ func death():
 		if Child.is_in_group(\"Checkpoints\"):
 			if Child.CheckPoint == CheckPoint:
 				position = Child.position
+	get_parent().reset_enemies()
+	dead = false
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
@@ -186,6 +192,7 @@ script = SubResource("GDScript_4flbx")
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Icon" type="Sprite2D" parent="."]
+z_index = 4096
 position = Vector2(-4.7683716e-07, -9.536743e-07)
 texture = ExtResource("1_d6veg")
 

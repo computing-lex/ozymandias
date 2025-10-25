@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdhotmdrbc6fx"]
+[gd_scene load_steps=12 format=3 uid="uid://bdhotmdrbc6fx"]
 
 [ext_resource type="Script" uid="uid://dq12x8qd43x2t" path="res://scripts/game.gd" id="1_d7tdo"]
 [ext_resource type="PackedScene" uid="uid://t85uo0d6i33e" path="res://assets/player/player.tscn" id="2_5fint"]
@@ -6,8 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://crrves6xa00q2" path="res://testassets/interactable.tscn" id="5_460cx"]
 [ext_resource type="PackedScene" uid="uid://kqemi18vkewi" path="res://assets/entities/normalblock.tscn" id="6_0lc1s"]
 [ext_resource type="PackedScene" uid="uid://t1800mv1fdrt" path="res://assets/entities/devblock.tscn" id="7_gu8wd"]
-[ext_resource type="PackedScene" path="res://assets/entities/checkpoint.tscn" id="8_gu8wd"]
-[ext_resource type="PackedScene" path="res://assets/entities/kill_zone.tscn" id="9_yyv2f"]
+[ext_resource type="PackedScene" uid="uid://bku5eb3s7nplv" path="res://assets/entities/checkpoint.tscn" id="8_gu8wd"]
+[ext_resource type="PackedScene" uid="uid://dwdmcdhndqycl" path="res://assets/entities/kill_zone.tscn" id="9_yyv2f"]
+[ext_resource type="PackedScene" uid="uid://dww0tcjipnvwn" path="res://assets/entities/go_left.tscn" id="10_5u7d1"]
+[ext_resource type="PackedScene" uid="uid://ctsnonunmuey4" path="res://assets/entities/spawner.tscn" id="11_5u7d1"]
+[ext_resource type="PackedScene" uid="uid://o555nts6aw8u" path="res://assets/entities/go_right.tscn" id="11_pcd67"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_d7tdo")
@@ -35,5 +38,25 @@ position = Vector2(201, -13)
 position = Vector2(13, -45)
 
 [node name="KillZone" parent="." instance=ExtResource("9_yyv2f")]
-position = Vector2(567, 182)
+position = Vector2(401.00006, 179)
 scale = Vector2(60, 1)
+
+[node name="Go_Left" parent="." instance=ExtResource("10_5u7d1")]
+position = Vector2(247, 24)
+
+[node name="Go_Right" parent="." instance=ExtResource("11_pcd67")]
+position = Vector2(137, 24)
+
+[node name="Spawner" parent="." instance=ExtResource("11_5u7d1")]
+position = Vector2(193, 24)
+Enemy_Type = "Snake"
+
+[node name="Go_Left2" parent="." instance=ExtResource("10_5u7d1")]
+position = Vector2(626, -24)
+
+[node name="Go_Right2" parent="." instance=ExtResource("11_pcd67")]
+position = Vector2(427, -24)
+
+[node name="Spawner2" parent="." instance=ExtResource("11_5u7d1")]
+position = Vector2(519, -24)
+Enemy_Type = "Snake"

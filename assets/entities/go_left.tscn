@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dww0tcjipnvwn"]
+
+[ext_resource type="Script" uid="uid://bdcit0hggr131" path="res://scripts/go_left.gd" id="1_d4yxh"]
+[ext_resource type="Texture2D" uid="uid://c1tuno812qk5h" path="res://assets/textures/L_BLOCK.png" id="1_o1oxw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4yxh"]
+size = Vector2(16, 16)
+
+[node name="Go_Left" type="Node2D"]
+script = ExtResource("1_d4yxh")
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+shape = SubResource("RectangleShape2D_d4yxh")
+
+[node name="LBlock" type="Sprite2D" parent="."]
+texture = ExtResource("1_o1oxw")
+
+[connection signal="area_entered" from="Area" to="." method="_on_area_area_entered"]

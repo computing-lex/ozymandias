@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgcm6p3yclnui"]
+
+[ext_resource type="Script" uid="uid://cg21jw8dfjd2c" path="res://scripts/goomba.gd" id="1_u6sa4"]
+[ext_resource type="Texture2D" uid="uid://ejrddxtnpaxq" path="res://testassets/RED.png" id="2_1kgul"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fj7dg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1kgul")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7dg"]
+size = Vector2(10, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16sg7"]
+size = Vector2(16, 15)
+
+[node name="SnakeEnemy" type="CharacterBody2D" groups=["Enemies"]]
+script = ExtResource("1_u6sa4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fj7dg")
+
+[node name="HitZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_fj7dg")
+
+[node name="KillZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_16sg7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="body_entered" from="HitZone" to="." method="_on_hit_zone_body_entered"]
+[connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
