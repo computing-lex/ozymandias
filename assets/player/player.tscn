@@ -1,22 +1,27 @@
-[gd_scene load_steps=22 format=3 uid="uid://t85uo0d6i33e"]
+[gd_scene load_steps=26 format=3 uid="uid://t85uo0d6i33e"]
 
-[ext_resource type="Texture2D" uid="uid://ejrddxtnpaxq" path="res://testassets/RED.png" id="1_d6veg"]
+[ext_resource type="Texture2D" uid="uid://dnyv40337h8x1" path="res://assets/textures/redfigure.png" id="1_tb4ck"]
 [ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="2_h6syq"]
-[ext_resource type="Texture2D" uid="uid://cyow2e7c0b85" path="res://testassets/icon.svg" id="3_v2miy"]
+[ext_resource type="Texture2D" uid="uid://vyqe2oc17ctb" path="res://assets/textures/black21.png" id="3_tb4ck"]
 [ext_resource type="Texture2D" uid="uid://b70wy7ts0dctj" path="res://testassets/buttondark.png" id="4_toylo"]
 [ext_resource type="Texture2D" uid="uid://by3rdjpuhdjxw" path="res://testassets/buttonblue.png" id="5_tb4ck"]
 [ext_resource type="Texture2D" uid="uid://cgp4d0j03gdca" path="res://testassets/buttonclick.png" id="6_kwvpd"]
+[ext_resource type="Texture2D" uid="uid://bvc163sy3bhy5" path="res://assets/textures/Debug_Buttonnormal.png" id="7_m2mll"]
+[ext_resource type="Texture2D" uid="uid://62uhpkk0csy" path="res://assets/textures/Coin.png" id="7_tb4ck"]
+[ext_resource type="Texture2D" uid="uid://dwn6mhu6qnjni" path="res://assets/textures/Debug_Buttonpress.png" id="8_hai6l"]
+[ext_resource type="Texture2D" uid="uid://dgcmk6ykod8bo" path="res://assets/textures/Debug_Buttonhover.png" id="9_vlpqo"]
 
 [sub_resource type="GDScript" id="GDScript_4flbx"]
 script/source = "extends CharacterBody2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 100.0
+const JUMP_VELOCITY = -300.0
 
 @onready var Dialogue = $\"Dialogue Box\"
 @onready var Animator = $Animator
 @onready var Detector = $Detector
 @onready var HeadText = $IteractionText
+@onready var CoinText = $CoinText
 
 var In_Interactible = false
 
@@ -31,6 +36,7 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	if dead == false:
+		CoinText.text = str(Global.Coins)+\" x \"
 		var check = false
 		if Detector.get_overlapping_areas().size() != 0:
 			for Area in Detector.get_overlapping_areas():
@@ -114,13 +120,13 @@ func death():
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(16, 16)
+size = Vector2(5, 10)
 
 [sub_resource type="Theme" id="Theme_v2miy"]
 default_font = ExtResource("2_h6syq")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v2miy"]
-texture = ExtResource("3_v2miy")
+texture = ExtResource("3_tb4ck")
 
 [sub_resource type="Animation" id="Animation_v2miy"]
 resource_name = "Dialogue_Scroll"
@@ -160,7 +166,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2miy"]
-size = Vector2(16, 16)
+size = Vector2(5, 10)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_op4fd"]
 texture = ExtResource("4_toylo")
@@ -177,24 +183,25 @@ Button/styles/normal = SubResource("StyleBoxTexture_m2mll")
 Button/styles/pressed = SubResource("StyleBoxTexture_hai6l")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_toylo"]
-texture = ExtResource("5_tb4ck")
+texture = ExtResource("7_m2mll")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tb4ck"]
-texture = ExtResource("6_kwvpd")
+texture = ExtResource("8_hai6l")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kwvpd"]
-texture = ExtResource("4_toylo")
+texture = ExtResource("9_vlpqo")
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = SubResource("GDScript_4flbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 3)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Icon" type="Sprite2D" parent="."]
 z_index = 4096
 position = Vector2(-4.7683716e-07, -9.536743e-07)
-texture = ExtResource("1_d6veg")
+texture = ExtResource("1_tb4ck")
 
 [node name="Camera" type="Camera2D" parent="."]
 
@@ -208,14 +215,15 @@ text = "E - Interact"
 
 [node name="Dialogue Box" type="RichTextLabel" parent="."]
 z_index = 4096
-offset_left = -160.0
-offset_top = -120.0
-offset_right = 160.0
-offset_bottom = -94.0
+clip_contents = false
+offset_left = -104.0
+offset_top = -80.0
+offset_right = 103.0
+offset_bottom = -41.0
 theme_override_fonts/normal_font = ExtResource("2_h6syq")
 theme_override_styles/normal = SubResource("StyleBoxTexture_v2miy")
-text = "
-continue..."
+text = "HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO
+"
 fit_content = true
 scroll_active = false
 visible_characters = 0
@@ -229,6 +237,7 @@ libraries = {
 [node name="Detector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+position = Vector2(-0.5, 3)
 shape = SubResource("RectangleShape2D_v2miy")
 
 [node name="TextureButton" type="TextureButton" parent="."]
@@ -239,23 +248,38 @@ theme = SubResource("Theme_vlpqo")
 
 [node name="IteractionText2" type="Label" parent="."]
 z_index = 1000
-offset_left = -45.0
-offset_top = 99.0
-offset_right = 47.0
-offset_bottom = 113.0
+offset_left = -46.0
+offset_top = 56.0
+offset_right = 46.0
+offset_bottom = 70.0
 theme = SubResource("Theme_v2miy")
 text = "Developer Mode"
+
+[node name="CoinText" type="Label" parent="."]
+z_index = 1000
+offset_left = 66.0
+offset_top = 56.0
+offset_right = 83.0
+offset_bottom = 85.0
+theme = SubResource("Theme_v2miy")
+text = "0 x
+"
 
 [node name="DevButton" type="Button" parent="."]
 z_index = 999
 offset_left = -48.0
-offset_top = 98.0
-offset_right = 48.0
-offset_bottom = 114.0
+offset_top = 55.0
+offset_right = 49.0
+offset_bottom = 71.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_toylo")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_tb4ck")
 theme_override_styles/hover = SubResource("StyleBoxTexture_kwvpd")
+
+[node name="Coin" type="Sprite2D" parent="."]
+z_index = 4096
+position = Vector2(94, 63)
+texture = ExtResource("7_tb4ck")
 
 [connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]
 [connection signal="pressed" from="DevButton" to="." method="_on_dev_button_pressed"]

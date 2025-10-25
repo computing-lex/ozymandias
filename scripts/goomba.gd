@@ -8,13 +8,19 @@ var heading = "Right"
 @onready var Hitzone = $HitZone
 @onready var KillZone = $KillZone
 @onready var DeathTimer = $Timer
+@onready var Visual = $Visual
+
+func _ready() -> void:
+	Visual.play("default")
 
 func _physics_process(delta: float) -> void:
 	if visible == true:
 		if heading == "Right":
 			velocity.x = SPEED
+			Visual.scale.x = -1
 		elif heading == "Left":
 			velocity.x = -SPEED
+			Visual.scale.x = 1
 		if dead == false:
 			move_and_slide()
 
@@ -38,7 +44,7 @@ func _on_hit_zone_body_entered(body: Node2D) -> void:
 					death()
 
 func death():
-	pass
+	Visual.play("dead")
 
 func _on_timer_timeout() -> void:
 	Hitzone.get_child(0).disabled = false
