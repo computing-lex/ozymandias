@@ -22,8 +22,8 @@ Global="*res://scripts/global.gd"
 
 [display]
 
-window/size/viewport_width=320
-window/size/viewport_height=240
+window/size/viewport_width=213
+window/size/viewport_height=160
 window/stretch/mode="viewport"
 
 [global_group]

@@ -1,6 +1,6 @@
 extends Node2D
 
-var next_scene = "res://assets/levels/level1.tscn"
+var next_scene = "res://assets/levels/prelevel1.tscn"
 
 func _ready() -> void:
 	start_game()

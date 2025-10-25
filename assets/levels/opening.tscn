@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://nhwig2j86808"]
 
-[ext_resource type="Script" uid="uid://c2j3tey8yfo2c" path="res://assets/levels/opening.gd" id="1_81ses"]
+[ext_resource type="Script" uid="uid://c2j3tey8yfo2c" path="res://scripts/opening.gd" id="1_81ses"]
 [ext_resource type="Texture2D" uid="uid://vyqe2oc17ctb" path="res://assets/textures/black21.png" id="1_byipn"]
 [ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="2_v8qc4"]
 
@@ -13,17 +13,14 @@ scale = Vector2(20, 15)
 texture = ExtResource("1_byipn")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_right = 320.0
-offset_bottom = 240.0
+offset_right = 221.0
+offset_bottom = 160.0
 theme_override_fonts/normal_font = ExtResource("2_v8qc4")
 text = "
- > COPYRIGHT (c) 1996 Tomosoft Games, All Rights Reserved.
+> This file is proprietary software of 
+  TomoSoft Games (c) 1996
 
- > No part of this file may be reproduced or transmitted
-  in any form without the prior permission of the
-  publisher.
+> Unauthorized access may be
+  prosecuted under U.S. Copyright Codes
 
- > Unauthorized access to this file is considered a  
-  criminal offense under U.S. Copyright Codes.
-
- > I understand ( y / n )"
+> I understand ( y  / n  )"

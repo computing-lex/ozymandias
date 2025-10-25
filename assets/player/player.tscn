@@ -211,14 +211,15 @@ text = "E - Interact"
 
 [node name="Dialogue Box" type="RichTextLabel" parent="."]
 z_index = 4096
-offset_left = -160.0
-offset_top = -120.0
-offset_right = 160.0
-offset_bottom = -94.0
+clip_contents = false
+offset_left = -106.0
+offset_top = -80.0
+offset_right = 106.0
+offset_bottom = -41.0
 theme_override_fonts/normal_font = ExtResource("2_h6syq")
 theme_override_styles/normal = SubResource("StyleBoxTexture_v2miy")
-text = "
-continue..."
+text = "HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO
+"
 fit_content = true
 scroll_active = false
 visible_characters = 0
@@ -242,19 +243,19 @@ theme = SubResource("Theme_vlpqo")
 
 [node name="IteractionText2" type="Label" parent="."]
 z_index = 1000
-offset_left = -45.0
-offset_top = 99.0
-offset_right = 47.0
-offset_bottom = 113.0
+offset_left = -46.0
+offset_top = 56.0
+offset_right = 46.0
+offset_bottom = 70.0
 theme = SubResource("Theme_v2miy")
 text = "Developer Mode"
 
 [node name="CoinText" type="Label" parent="."]
 z_index = 1000
-offset_left = 118.0
-offset_top = 99.0
-offset_right = 135.0
-offset_bottom = 128.0
+offset_left = 66.0
+offset_top = 56.0
+offset_right = 83.0
+offset_bottom = 85.0
 theme = SubResource("Theme_v2miy")
 text = "0 x
 "
@@ -262,9 +263,9 @@ text = "0 x
 [node name="DevButton" type="Button" parent="."]
 z_index = 999
 offset_left = -48.0
-offset_top = 98.0
+offset_top = 55.0
 offset_right = 48.0
-offset_bottom = 114.0
+offset_bottom = 71.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_toylo")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_tb4ck")
@@ -272,7 +273,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_kwvpd")
 
 [node name="Coin" type="Sprite2D" parent="."]
 z_index = 4096
-position = Vector2(146, 106)
+position = Vector2(94, 63)
 texture = ExtResource("7_tb4ck")
 
 [connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]
