@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://t1800mv1fdrt"]
+
+[ext_resource type="Script" uid="uid://djn0f2fm1ss4w" path="res://assets/entities/specialblock.gd" id="1_bgq68"]
+[ext_resource type="Texture2D" uid="uid://ejrddxtnpaxq" path="res://testassets/RED.png" id="1_jseht"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v46r2"]
+size = Vector2(160.00006, 160.00006)
+
+[node name="devblock" type="Node2D"]
+script = ExtResource("1_bgq68")
+
+[node name="Collider" type="StaticBody2D" parent="."]
+scale = Vector2(0.1, 0.1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collider"]
+position = Vector2(9.5367395e-06, -1.5258777e-05)
+scale = Vector2(0.99999934, 0.99999934)
+shape = SubResource("RectangleShape2D_v46r2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Collider"]
+scale = Vector2(9.999999, 9.999999)
+texture = ExtResource("1_jseht")

@@ -21,6 +21,11 @@ window/size/viewport_width=320
 window/size/viewport_height=240
 window/stretch/mode="viewport"
 
+[global_group]
+
+Normal_Only=""
+Dev_Only=""
+
 [input]
 
 ui_select={

@@ -14,3 +14,11 @@ extends Node2D
 
 @onready var Visual = $Visual
 @onready var Area = $Area
+
+func _physics_process(delta: float) -> void:
+	if visible == false:
+		Area.monitoring = false
+		Area.monitorable = false
+	if visible == true:
+		Area.monitoring = true
+		Area.monitorable = true
