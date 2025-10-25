@@ -15,7 +15,7 @@ script = ExtResource("1_d7tdo")
 [node name="Player" parent="." instance=ExtResource("2_5fint")]
 position = Vector2(84, -69)
 
-[node name="Level1World" parent="." instance=ExtResource("3_gu8wd")]
+[node name="TheWorld" parent="." instance=ExtResource("3_gu8wd")]
 
 [node name="Interactable" parent="." groups=["Normal_Only"] instance=ExtResource("5_460cx")]
 position = Vector2(263, -41)
