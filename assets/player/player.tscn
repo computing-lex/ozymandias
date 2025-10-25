@@ -1,11 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://t85uo0d6i33e"]
+[gd_scene load_steps=22 format=3 uid="uid://t85uo0d6i33e"]
 
 [ext_resource type="Texture2D" uid="uid://dnyv40337h8x1" path="res://assets/textures/redfigure.png" id="1_tb4ck"]
 [ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="2_h6syq"]
 [ext_resource type="Texture2D" uid="uid://vyqe2oc17ctb" path="res://assets/textures/black21.png" id="3_tb4ck"]
-[ext_resource type="Texture2D" uid="uid://b70wy7ts0dctj" path="res://testassets/buttondark.png" id="4_toylo"]
-[ext_resource type="Texture2D" uid="uid://by3rdjpuhdjxw" path="res://testassets/buttonblue.png" id="5_tb4ck"]
-[ext_resource type="Texture2D" uid="uid://cgp4d0j03gdca" path="res://testassets/buttonclick.png" id="6_kwvpd"]
 [ext_resource type="Texture2D" uid="uid://bvc163sy3bhy5" path="res://assets/textures/Debug_Buttonnormal.png" id="7_m2mll"]
 [ext_resource type="Texture2D" uid="uid://62uhpkk0csy" path="res://assets/textures/Coin.png" id="7_tb4ck"]
 [ext_resource type="Texture2D" uid="uid://dwn6mhu6qnjni" path="res://assets/textures/Debug_Buttonpress.png" id="8_hai6l"]
@@ -17,11 +14,14 @@ script/source = "extends CharacterBody2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 
+@onready var EndAnim = $FadeOut
 @onready var Dialogue = $\"Dialogue Box\"
 @onready var Animator = $Animator
 @onready var Detector = $Detector
 @onready var HeadText = $IteractionText
 @onready var CoinText = $CoinText
+
+var next_level = \"\"
 
 var In_Interactible = false
 
@@ -117,6 +117,10 @@ func death():
 				position = Child.position
 	get_parent().reset_enemies()
 	dead = false
+
+func _on_fade_out_animation_finished(anim_name: StringName) -> void:
+	if anim_name == \"BlackFade\":
+		get_tree().change_scene_to_file(\"res://assets/levels/\"+next_level+\".tscn\")
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
@@ -168,20 +172,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2miy"]
 size = Vector2(5, 10)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_op4fd"]
-texture = ExtResource("4_toylo")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m2mll"]
-texture = ExtResource("5_tb4ck")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hai6l"]
-texture = ExtResource("6_kwvpd")
-
-[sub_resource type="Theme" id="Theme_vlpqo"]
-Button/styles/hover = SubResource("StyleBoxTexture_op4fd")
-Button/styles/normal = SubResource("StyleBoxTexture_m2mll")
-Button/styles/pressed = SubResource("StyleBoxTexture_hai6l")
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_toylo"]
 texture = ExtResource("7_m2mll")
 
@@ -190,6 +180,42 @@ texture = ExtResource("8_hai6l")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kwvpd"]
 texture = ExtResource("9_vlpqo")
+
+[sub_resource type="Animation" id="Animation_m2mll"]
+resource_name = "BlackFade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Black21:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hai6l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Black21:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vlpqo"]
+_data = {
+&"BlackFade": SubResource("Animation_m2mll"),
+&"RESET": SubResource("Animation_hai6l")
+}
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = SubResource("GDScript_4flbx")
@@ -206,6 +232,7 @@ texture = ExtResource("1_tb4ck")
 [node name="Camera" type="Camera2D" parent="."]
 
 [node name="IteractionText" type="Label" parent="."]
+z_index = 4094
 offset_left = -33.0
 offset_top = -27.0
 offset_right = 33.0
@@ -240,12 +267,6 @@ libraries = {
 position = Vector2(-0.5, 3)
 shape = SubResource("RectangleShape2D_v2miy")
 
-[node name="TextureButton" type="TextureButton" parent="."]
-offset_top = 71.0
-offset_right = 40.0
-offset_bottom = 111.0
-theme = SubResource("Theme_vlpqo")
-
 [node name="IteractionText2" type="Label" parent="."]
 z_index = 1000
 offset_left = -46.0
@@ -277,9 +298,22 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_tb4ck")
 theme_override_styles/hover = SubResource("StyleBoxTexture_kwvpd")
 
 [node name="Coin" type="Sprite2D" parent="."]
-z_index = 4096
+z_index = 4095
 position = Vector2(94, 63)
 texture = ExtResource("7_tb4ck")
 
+[node name="FadeOut" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vlpqo")
+}
+
+[node name="Black21" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 4096
+position = Vector2(3, -2.5)
+scale = Vector2(14.250001, 10.6875)
+texture = ExtResource("3_tb4ck")
+
 [connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]
 [connection signal="pressed" from="DevButton" to="." method="_on_dev_button_pressed"]
+[connection signal="animation_finished" from="FadeOut" to="." method="_on_fade_out_animation_finished"]

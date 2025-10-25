@@ -1,16 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://crrves6xa00q2"]
+[gd_scene load_steps=4 format=3 uid="uid://pk3exbol5d32"]
 
-[ext_resource type="Script" uid="uid://nksmtwcxgetl" path="res://scripts/interactable.gd" id="1_2v13y"]
-[ext_resource type="Texture2D" uid="uid://ddmt04o70twy4" path="res://testassets/BLUE.png" id="1_m6suo"]
+[ext_resource type="Script" uid="uid://nksmtwcxgetl" path="res://scripts/interactable.gd" id="1_fayqw"]
+[ext_resource type="Texture2D" uid="uid://ct3qfmjph05f1" path="res://assets/textures/Missingtexture.png" id="2_fayqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2v13y"]
 size = Vector2(16, 16)
 
 [node name="Interactable" type="Node2D" groups=["Interactible"]]
-script = ExtResource("1_2v13y")
+script = ExtResource("1_fayqw")
 
 [node name="Visual" type="Sprite2D" parent="."]
-texture = ExtResource("1_m6suo")
+texture = ExtResource("2_fayqw")
 
 [node name="Area" type="Area2D" parent="." groups=["Interactible"]]
 

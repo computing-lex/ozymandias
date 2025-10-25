@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v46r2"]
 size = Vector2(160.00006, 160.00006)
 
-[node name="normalblock" type="Node2D"]
+[node name="normalblock" type="Node2D" groups=["Normal_Only"]]
 script = ExtResource("1_jin8r")
 
 [node name="Collider" type="StaticBody2D" parent="."]
