@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhojvh7sw4d0h"
-path="res://.godot/imported/snake-Sheet.png-e12c8216b23ed9fcb9d5122728499d7e.ctex"
+uid="uid://bmyj2vj5x6m2p"
+path="res://.godot/imported/Coinanimation3.png-872156bf0c82450e47d5b24ad51253d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/snake/snake-Sheet.png"
-dest_files=["res://.godot/imported/snake-Sheet.png-e12c8216b23ed9fcb9d5122728499d7e.ctex"]
+source_file="res://assets/textures/Coinanimation3.png"
+dest_files=["res://.godot/imported/Coinanimation3.png-872156bf0c82450e47d5b24ad51253d5.ctex"]
 
 [params]
 
