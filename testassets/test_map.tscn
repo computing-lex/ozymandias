@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dndflenrhc56u"]
+
+[ext_resource type="PackedScene" uid="uid://bjoyn6ar70o30" path="res://testassets/testblock.tscn" id="1_vtdga"]
+[ext_resource type="PackedScene" uid="uid://t85uo0d6i33e" path="res://assets/player/player.tscn" id="2_11b4i"]
+[ext_resource type="PackedScene" uid="uid://crrves6xa00q2" path="res://testassets/interactable.tscn" id="3_11b4i"]
+
+[node name="test map" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_11b4i")]
+position = Vector2(79, 57)
+
+[node name="testblock" parent="." instance=ExtResource("1_vtdga")]
+position = Vector2(107.99999, 194)
+scale = Vector2(11.88, 1)
+
+[node name="testblock2" parent="." instance=ExtResource("1_vtdga")]
+position = Vector2(292, 147)
+scale = Vector2(4.959999, 1)
+
+[node name="testblock3" parent="." instance=ExtResource("1_vtdga")]
+position = Vector2(331.99997, 332)
+scale = Vector2(23.516287, 2.119642)
+
+[node name="Interactable" parent="." instance=ExtResource("3_11b4i")]
+position = Vector2(146, 175)
+Text1 = "\"Wow I'm Talking!\""
+
+[node name="Interactable2" parent="." instance=ExtResource("3_11b4i")]
+position = Vector2(281, 130)
+Text1 = "I met a traveller from an antique landWho said: Two vast and trunkless legs of stoneStand in the desart.[d] Near them, on the sand,Half sunk, a shattered visage lies, whose frown,And wrinkled lip, and sneer of cold command,Tell that its sculptor well those passions readWhich yet survive, stamped on these lifeless things,The hand that mocked them and the heart that fed:And on the pedestal these words appear:\"My name is Ozymandias, King of Kings:Look on my works, ye Mighty, and despair!\"Nothing beside remains. Round the decayOf that colossal wreck, boundless and bareThe lone and level sands stretch far away. "

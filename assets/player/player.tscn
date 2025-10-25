@@ -1,0 +1,180 @@
+[gd_scene load_steps=12 format=3 uid="uid://t85uo0d6i33e"]
+
+[ext_resource type="Texture2D" uid="uid://ejrddxtnpaxq" path="res://testassets/RED.png" id="1_d6veg"]
+[ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="2_h6syq"]
+[ext_resource type="Texture2D" uid="uid://cyow2e7c0b85" path="res://testassets/icon.svg" id="3_v2miy"]
+
+[sub_resource type="GDScript" id="GDScript_4flbx"]
+script/source = "extends CharacterBody2D
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+
+@onready var Dialogue = $\"Dialogue Box\"
+@onready var Animator = $Animator
+@onready var Detector = $Detector
+@onready var HeadText = $IteractionText
+
+var In_Interactible = false
+
+var ReadState = 0
+
+func _ready():
+	Dialogue.visible = false
+
+func _physics_process(delta: float) -> void:
+	var check = false
+	if Detector.get_overlapping_areas().size() != 0:
+		for Area in Detector.get_overlapping_areas():
+			if Area.is_in_group(\"Interactible\"):
+				In_Interactible = true
+				check = true
+			if check == false:
+				In_Interactible = false
+	else:
+		In_Interactible = false
+	
+	if In_Interactible == true:
+		HeadText.visible = true
+	else:
+		HeadText.visible = false
+	
+	
+	
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	if ReadState == 0:
+		if Input.is_action_just_pressed(\"ui_select\"):
+			if In_Interactible == true:
+				ReadState = 1
+				for Area in Detector.get_overlapping_areas():
+					if Area.is_in_group(\"Interactible\"):
+						if Area.get_parent().Use_States == false:
+							display_dialogue_text(Area.get_parent().Text1+\"\\n\\nE - Continue\")
+		
+		# Handle jump.
+		if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		var direction := Input.get_axis(\"ui_left\", \"ui_right\")
+		if direction:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+	move_and_slide()
+	
+	if ReadState == 2:
+		if Input.is_action_just_pressed(\"ui_select\"):
+			Dialogue.visible = false
+			ReadState = 0
+
+func display_dialogue_text(dialogue_input):
+	Dialogue.visible = true
+	Dialogue.text = dialogue_input
+	Animator.play(\"Dialogue_Scroll\")
+
+
+func _on_animator_animation_finished(anim_name: StringName) -> void:
+	if anim_name == \"Dialogue_Scroll\":
+		ReadState = 2
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(16, 16)
+
+[sub_resource type="Theme" id="Theme_v2miy"]
+default_font = ExtResource("2_h6syq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v2miy"]
+texture = ExtResource("3_v2miy")
+
+[sub_resource type="Animation" id="Animation_v2miy"]
+resource_name = "Dialogue_Scroll"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialogue Box:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ouxva"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialogue Box:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d5dr7"]
+_data = {
+&"Dialogue_Scroll": SubResource("Animation_v2miy"),
+&"RESET": SubResource("Animation_ouxva")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2miy"]
+size = Vector2(16, 16)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = SubResource("GDScript_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-4.7683716e-07, -9.536743e-07)
+texture = ExtResource("1_d6veg")
+
+[node name="Camera" type="Camera2D" parent="."]
+
+[node name="IteractionText" type="Label" parent="."]
+offset_left = -33.0
+offset_top = -27.0
+offset_right = 33.0
+offset_bottom = -13.0
+theme = SubResource("Theme_v2miy")
+text = "E - Interact"
+
+[node name="Dialogue Box" type="RichTextLabel" parent="."]
+z_index = 4096
+offset_left = -160.0
+offset_top = -120.0
+offset_right = 160.0
+offset_bottom = -94.0
+theme_override_fonts/normal_font = ExtResource("2_h6syq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_v2miy")
+text = "
+continue..."
+fit_content = true
+scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_d5dr7")
+}
+
+[node name="Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+shape = SubResource("RectangleShape2D_v2miy")
+
+[connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]

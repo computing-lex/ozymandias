@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjoyn6ar70o30"]
+
+[ext_resource type="Texture2D" uid="uid://q8nw8f34m4yl" path="res://testassets/YELLOW.png" id="1_vlf4k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v46r2"]
+size = Vector2(160.00006, 160.00006)
+
+[node name="testblock" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(0.1, 0.1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(9.5367395e-06, -1.5258777e-05)
+scale = Vector2(0.99999934, 0.99999934)
+shape = SubResource("RectangleShape2D_v46r2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vlf4k")
