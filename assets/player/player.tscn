@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://t85uo0d6i33e"]
+[gd_scene load_steps=22 format=3 uid="uid://t85uo0d6i33e"]
 
 [ext_resource type="Texture2D" uid="uid://ejrddxtnpaxq" path="res://testassets/RED.png" id="1_d6veg"]
 [ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="2_h6syq"]
 [ext_resource type="Texture2D" uid="uid://cyow2e7c0b85" path="res://testassets/icon.svg" id="3_v2miy"]
+[ext_resource type="Texture2D" uid="uid://b70wy7ts0dctj" path="res://testassets/buttondark.png" id="4_toylo"]
+[ext_resource type="Texture2D" uid="uid://by3rdjpuhdjxw" path="res://testassets/buttonblue.png" id="5_tb4ck"]
+[ext_resource type="Texture2D" uid="uid://cgp4d0j03gdca" path="res://testassets/buttonclick.png" id="6_kwvpd"]
 
 [sub_resource type="GDScript" id="GDScript_4flbx"]
 script/source = "extends CharacterBody2D
@@ -65,22 +68,32 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-	move_and_slide()
 	
 	if ReadState == 2:
+		velocity.x = 0
 		if Input.is_action_just_pressed(\"ui_select\"):
 			Dialogue.visible = false
 			ReadState = 0
+	
+	move_and_slide()
 
 func display_dialogue_text(dialogue_input):
 	Dialogue.visible = true
 	Dialogue.text = dialogue_input
 	Animator.play(\"Dialogue_Scroll\")
 
-
 func _on_animator_animation_finished(anim_name: StringName) -> void:
 	if anim_name == \"Dialogue_Scroll\":
 		ReadState = 2
+
+
+func _on_dev_button_pressed() -> void:
+	if ReadState == 0:
+		if get_parent().Mode == \"Normal\":
+			get_parent().Mode = \"Dev\"
+		else:
+			get_parent().Mode = \"Normal\"
+		get_parent().update_mode()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
@@ -132,6 +145,29 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2miy"]
 size = Vector2(16, 16)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_op4fd"]
+texture = ExtResource("4_toylo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m2mll"]
+texture = ExtResource("5_tb4ck")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hai6l"]
+texture = ExtResource("6_kwvpd")
+
+[sub_resource type="Theme" id="Theme_vlpqo"]
+Button/styles/hover = SubResource("StyleBoxTexture_op4fd")
+Button/styles/normal = SubResource("StyleBoxTexture_m2mll")
+Button/styles/pressed = SubResource("StyleBoxTexture_hai6l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_toylo"]
+texture = ExtResource("5_tb4ck")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tb4ck"]
+texture = ExtResource("6_kwvpd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kwvpd"]
+texture = ExtResource("4_toylo")
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = SubResource("GDScript_4flbx")
 
@@ -177,4 +213,31 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
 shape = SubResource("RectangleShape2D_v2miy")
 
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_top = 71.0
+offset_right = 40.0
+offset_bottom = 111.0
+theme = SubResource("Theme_vlpqo")
+
+[node name="IteractionText2" type="Label" parent="."]
+z_index = 1000
+offset_left = -45.0
+offset_top = 99.0
+offset_right = 47.0
+offset_bottom = 113.0
+theme = SubResource("Theme_v2miy")
+text = "Developer Mode"
+
+[node name="DevButton" type="Button" parent="."]
+z_index = 999
+offset_left = -48.0
+offset_top = 98.0
+offset_right = 48.0
+offset_bottom = 114.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_toylo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tb4ck")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kwvpd")
+
 [connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]
+[connection signal="pressed" from="DevButton" to="." method="_on_dev_button_pressed"]
