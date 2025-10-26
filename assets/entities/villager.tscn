@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cmeoqgyppq3uj"]
+[gd_scene load_steps=19 format=3 uid="uid://cmeoqgyppq3uj"]
 
 [ext_resource type="Script" uid="uid://nksmtwcxgetl" path="res://scripts/interactable.gd" id="1_d3i24"]
 [ext_resource type="Texture2D" uid="uid://03pf35llypb8" path="res://assets/textures/villagers/villager1.png" id="2_upw00"]
@@ -105,72 +105,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xkkt7"]
-atlas = ExtResource("5_4vx5i")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g6ruk"]
-atlas = ExtResource("5_4vx5i")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_iimg5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hmn8g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x85pn")
-}],
-"loop": true,
-"name": &"1",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vyxtu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gfg6w")
-}],
-"loop": true,
-"name": &"2",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4pxsi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p5jat")
-}],
-"loop": true,
-"name": &"3",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xkkt7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g6ruk")
-}],
-"loop": true,
-"name": &"4",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sostb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6d4ss")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2v13y"]
 size = Vector2(7, 11)
 
@@ -179,10 +113,6 @@ script = ExtResource("1_d3i24")
 
 [node name="Visual" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4xbv1")
-animation = &"4"
-
-[node name="VisualOG" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_iimg5")
 animation = &"4"
 
 [node name="Area" type="Area2D" parent="." groups=["Interactible"]]

@@ -2,6 +2,7 @@ extends Node2D
 
 var Snake_Enemy = preload("res://assets/entities/snake_enemy.tscn")
 var Scorpion_Enemy = preload("res://assets/entities/scorpion_enemy.tscn")
+var Dev_Scorpion_Enemy = preload("res://assets/entities/dev_scorpion_enemy.tscn")
 
 var Spawn
 
@@ -16,5 +17,7 @@ func spawn():
 			Spawn = Snake_Enemy.instantiate()
 		"Scorpion":
 			Spawn = Scorpion_Enemy.instantiate()
+		"Dev Scorpion":
+			Spawn = Dev_Scorpion_Enemy.instantiate()
 	Spawn.position = position
 	get_parent().add_child(Spawn)

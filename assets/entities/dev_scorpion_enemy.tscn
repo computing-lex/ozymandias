@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bevvda1i3g1mt"]
 
-[ext_resource type="Script" path="res://scripts/dev_scorpion_enemy.gd" id="1_hxll3"]
+[ext_resource type="Script" uid="uid://cacm72hn3jlmh" path="res://assets/entities/dev_scorpion_enemy.gd" id="1_eacfa"]
 [ext_resource type="Texture2D" uid="uid://caysr8kksqgih" path="res://assets/textures/Scorpion-Sheet.png" id="2_eacfa"]
 [ext_resource type="Shader" uid="uid://c76c5bda4tua3" path="res://assets/levels/devShader.gdshader" id="2_suwsa"]
 
@@ -46,7 +46,7 @@ animations = [{
 size = Vector2(30, 14)
 
 [node name="ScorpionEnemy" type="CharacterBody2D" groups=["Dev_Only", "Enemies"]]
-script = ExtResource("1_hxll3")
+script = ExtResource("1_eacfa")
 
 [node name="Visual" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_kytkv")

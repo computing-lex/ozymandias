@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://by186l475idvk"]
 
-[ext_resource type="Texture2D" uid="uid://dfkmkbybj1mfw" path="res://assets/textures/statue.png" id="1_3kaeo"]
+[ext_resource type="Texture2D" uid="uid://ml4niaubev4w" path="res://assets/textures/statue_colored.png" id="1_3kaeo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sx7su"]
 size = Vector2(80, 208)
@@ -17,7 +17,7 @@ size = Vector2(48, 64)
 [node name="OZYMANDIAS" type="Node2D"]
 
 [node name="Statue" type="Sprite2D" parent="."]
-position = Vector2(-56, -232)
+position = Vector2(-56, -153)
 texture = ExtResource("1_3kaeo")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

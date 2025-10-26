@@ -1,20 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1qb7u4wrvs7p"]
+[gd_scene load_steps=9 format=3 uid="uid://c1qb7u4wrvs7p"]
 
 [ext_resource type="Script" uid="uid://bshrtju3107r5" path="res://scripts/gate.gd" id="1_eh72g"]
 [ext_resource type="Texture2D" uid="uid://can4hda1totr7" path="res://assets/textures/gateplaceholder.png" id="1_ibwmj"]
+[ext_resource type="Texture2D" uid="uid://b8qoh510rxefq" path="res://assets/tiles/gate_pillar.png" id="3_0ksn7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibwmj"]
 size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn2bd"]
+atlas = ExtResource("3_0ksn7")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7ruw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn2bd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbrea"]
+atlas = ExtResource("3_0ksn7")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gg0la"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbrea")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Gate" type="Node2D"]
 script = ExtResource("1_eh72g")
 
 [node name="Gateplaceholder" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_ibwmj")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_ibwmj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 5
+position = Vector2(-8, -8)
+sprite_frames = SubResource("SpriteFrames_q7ruw")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+z_index = 900
+position = Vector2(7, -8)
+sprite_frames = SubResource("SpriteFrames_gg0la")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -121,7 +121,8 @@ func _on_dev_button_pressed() -> void:
 
 func to_death():
 	dead = true
-	Sprite_Anim.play(\"die\")
+	if Sprite_Anim.animation != \"die\":
+		Sprite_Anim.play(\"die\")
 
 func death():
 	for Child in get_parent().get_children():
