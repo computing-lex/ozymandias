@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://dww0tcjipnvwn" path="res://assets/entities/go_left.tscn" id="10_5u7d1"]
 [ext_resource type="PackedScene" uid="uid://ctsnonunmuey4" path="res://assets/entities/spawner.tscn" id="11_5u7d1"]
 [ext_resource type="PackedScene" uid="uid://o555nts6aw8u" path="res://assets/entities/go_right.tscn" id="11_pcd67"]
-[ext_resource type="PackedScene" uid="uid://cmeoqgyppq3uj" path="res://assets/entities/villager.tscn" id="11_ywjg5"]
+[ext_resource type="PackedScene" path="res://assets/entities/villager.tscn" id="11_ywjg5"]
 [ext_resource type="PackedScene" uid="uid://dti45j1gaqkpn" path="res://assets/entities/coin.tscn" id="12_pcd67"]
-[ext_resource type="PackedScene" uid="uid://dbhq6m2tvrly2" path="res://assets/entities/dev_note.tscn" id="13_p68n7"]
-[ext_resource type="PackedScene" uid="uid://pk3exbol5d32" path="res://assets/entities/THE_GREAT SERPENT.tscn" id="13_ywjg5"]
+[ext_resource type="PackedScene" uid="uid://ga6mu5m2hndo" path="res://assets/entities/dev_note.tscn" id="13_p68n7"]
+[ext_resource type="PackedScene" path="res://assets/entities/THE_GREAT SERPENT.tscn" id="13_ywjg5"]
 [ext_resource type="PackedScene" uid="uid://kqemi18vkewi" path="res://assets/entities/normalblock.tscn" id="14_p68n7"]
 [ext_resource type="PackedScene" uid="uid://c1qb7u4wrvs7p" path="res://assets/entities/gate.tscn" id="15_d0lgm"]
 
@@ -165,19 +165,19 @@ position = Vector2(2072, -76)
 scale = Vector2(5.1252985, 5.1252985)
 Text1 = "\"I AM THE GREAT SERPENT. YOU ARE AN ANT. I WILL CRUSH YOU AND YOUR PITIFUL VILLAGE.\""
 
-[node name="normalblock" parent="." groups=["Normal_Only"] instance=ExtResource("14_p68n7")]
+[node name="normalblock" parent="." instance=ExtResource("14_p68n7")]
 position = Vector2(2208, -40)
 
-[node name="normalblock2" parent="." groups=["Normal_Only"] instance=ExtResource("14_p68n7")]
+[node name="normalblock2" parent="." instance=ExtResource("14_p68n7")]
 position = Vector2(2208, -56)
 
-[node name="normalblock3" parent="." groups=["Normal_Only"] instance=ExtResource("14_p68n7")]
+[node name="normalblock3" parent="." instance=ExtResource("14_p68n7")]
 position = Vector2(2208, -72)
 
-[node name="normalblock4" parent="." groups=["Normal_Only"] instance=ExtResource("14_p68n7")]
+[node name="normalblock4" parent="." instance=ExtResource("14_p68n7")]
 position = Vector2(2208, -88)
 
-[node name="normalblock5" parent="." groups=["Normal_Only"] instance=ExtResource("14_p68n7")]
+[node name="normalblock5" parent="." instance=ExtResource("14_p68n7")]
 position = Vector2(2208, -104)
 
 [node name="Gate" parent="." instance=ExtResource("15_d0lgm")]
