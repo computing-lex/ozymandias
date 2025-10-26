@@ -9,13 +9,23 @@
 script = ExtResource("1_81ses")
 
 [node name="Black21" type="Sprite2D" parent="."]
-position = Vector2(160, 120)
-scale = Vector2(20, 15)
+position = Vector2(120, 80)
+scale = Vector2(15, 10)
 texture = ExtResource("1_byipn")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_right = 221.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 240.0
 offset_bottom = 160.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("2_v8qc4")
 text = "
 > This file is proprietary software of 
