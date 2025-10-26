@@ -149,7 +149,6 @@ func _on_fade_out_animation_finished(anim_name: StringName) -> void:
 	if anim_name == \"BlackFade\":
 		get_tree().change_scene_to_file(\"res://assets/levels/\"+next_level+\".tscn\")
 
-
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if dead == true:
 		if is_dying == true:
