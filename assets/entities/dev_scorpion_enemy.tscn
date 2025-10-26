@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://bevvda1i3g1mt"]
+
+[ext_resource type="Script" path="res://scripts/dev_scorpion_enemy.gd" id="1_hxll3"]
+[ext_resource type="Texture2D" uid="uid://caysr8kksqgih" path="res://assets/textures/Scorpion-Sheet.png" id="2_eacfa"]
+[ext_resource type="Shader" uid="uid://c76c5bda4tua3" path="res://assets/levels/devShader.gdshader" id="2_suwsa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kytkv"]
+shader = ExtResource("2_suwsa")
+shader_parameter/dev_mode = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmjxq"]
+atlas = ExtResource("2_eacfa")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox0q5"]
+atlas = ExtResource("2_eacfa")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltiky"]
+atlas = ExtResource("2_eacfa")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fj7dg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmjxq")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox0q5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltiky")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16sg7"]
+size = Vector2(30, 14)
+
+[node name="ScorpionEnemy" type="CharacterBody2D" groups=["Dev_Only", "Enemies"]]
+script = ExtResource("1_hxll3")
+
+[node name="Visual" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_kytkv")
+sprite_frames = SubResource("SpriteFrames_fj7dg")
+
+[node name="KillZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_16sg7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
