@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dce7wxsisicqa"]
+
+[ext_resource type="Script" uid="uid://b2l664vkrn3hk" path="res://scripts/wind_player.gd" id="1_nj2m6"]
+[ext_resource type="AudioStream" uid="uid://sbdv7cf11tli" path="res://assets/Sounds/DesertWindWithBitSounds.mp3" id="1_prbwa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prbwa"]
+
+[node name="WindPlayer" type="Node2D"]
+script = ExtResource("1_nj2m6")
+
+[node name="WIND" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_prbwa")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_prbwa")
+
+[connection signal="finished" from="WIND" to="." method="_on_wind_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://diemxhy68jor5"]
+
+[ext_resource type="Texture2D" uid="uid://g11v8ftyw5md" path="res://assets/textures/savepoint.png" id="1_f2atx"]
+[ext_resource type="Script" uid="uid://quw1ap2jemdy" path="res://scripts/savepoint.gd" id="1_nra26"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f2atx"]
+radius = 8.0
+
+[node name="Savepoint" type="Node2D"]
+script = ExtResource("1_nra26")
+
+[node name="Savepoint" type="Sprite2D" parent="."]
+texture = ExtResource("1_f2atx")
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+shape = SubResource("CircleShape2D_f2atx")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]

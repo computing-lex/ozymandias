@@ -47,7 +47,7 @@ Text1 = "\"They're calling for you at the quarry... you should really get going.
 [node name="Coin" parent="." instance=ExtResource("12_pcd67")]
 position = Vector2(56, -44)
 
-[node name="devblock" parent="." groups=["Dev_Only"] instance=ExtResource("7_gu8wd")]
+[node name="devblock" parent="." instance=ExtResource("7_gu8wd")]
 position = Vector2(-4, -48)
 
 [node name="Dev_Note" parent="." instance=ExtResource("13_p68n7")]

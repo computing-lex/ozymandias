@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://0amusk8yylxi"]
+
+[ext_resource type="Texture2D" uid="uid://vyqe2oc17ctb" path="res://assets/textures/black21.png" id="2_m2ewp"]
+
+[node name="credits" type="Node2D"]
+
+[node name="Black21" type="Sprite2D" parent="."]
+z_index = -1000
+position = Vector2(113.99999, 89.99999)
+scale = Vector2(14.749999, 11.749999)
+texture = ExtResource("2_m2ewp")
+metadata/_edit_lock_ = true

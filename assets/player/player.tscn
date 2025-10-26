@@ -276,16 +276,6 @@ offset_bottom = 70.0
 theme = SubResource("Theme_v2miy")
 text = "Developer Mode"
 
-[node name="CoinText" type="Label" parent="."]
-z_index = 1000
-offset_left = 66.0
-offset_top = 56.0
-offset_right = 83.0
-offset_bottom = 85.0
-theme = SubResource("Theme_v2miy")
-text = "0 x
-"
-
 [node name="DevButton" type="Button" parent="."]
 z_index = 999
 offset_left = -48.0
@@ -313,6 +303,16 @@ z_index = 4096
 position = Vector2(3, -2.5)
 scale = Vector2(14.250001, 10.6875)
 texture = ExtResource("3_tb4ck")
+
+[node name="CoinText" type="RichTextLabel" parent="."]
+z_index = 900
+offset_left = 43.0
+offset_top = 56.0
+offset_right = 83.0
+offset_bottom = 71.0
+theme_override_fonts/normal_font = ExtResource("2_h6syq")
+text = "0 x"
+horizontal_alignment = 2
 
 [connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]
 [connection signal="pressed" from="DevButton" to="." method="_on_dev_button_pressed"]

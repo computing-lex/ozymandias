@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var Is_Miku = false
 @export var Text1 = ""
 
 @export var Use_States = false
@@ -14,6 +15,10 @@ extends Node2D
 
 @onready var Visual = $Visual
 @onready var Area = $Area
+
+func _ready() -> void:
+	if Is_Miku == true:
+		Visual.play("default")
 
 func _physics_process(delta: float) -> void:
 	if visible == false:

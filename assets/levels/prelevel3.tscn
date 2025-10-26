@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bygwqejwrsiuv"]
+[gd_scene load_steps=7 format=3 uid="uid://b0og20mni8tai"]
 
-[ext_resource type="Script" uid="uid://bk786rt8wu5mb" path="res://scripts/prelevel1.gd" id="1_jp2hu"]
-[ext_resource type="Texture2D" uid="uid://vyqe2oc17ctb" path="res://assets/textures/black21.png" id="2_y7s4l"]
-[ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="3_n407r"]
+[ext_resource type="Script" uid="uid://ctiijcujti6a0" path="res://scripts/prelevel_3.gd" id="1_sp4fq"]
+[ext_resource type="Texture2D" uid="uid://vyqe2oc17ctb" path="res://assets/textures/black21.png" id="2_kufqu"]
+[ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="3_uxurs"]
 
 [sub_resource type="Animation" id="Animation_jp2hu"]
 length = 0.001
@@ -113,59 +113,57 @@ _data = {
 &"reveal": SubResource("Animation_ghl75")
 }
 
-[node name="prelevel1" type="Node2D"]
-script = ExtResource("1_jp2hu")
+[node name="prelevel3" type="Node2D"]
+script = ExtResource("1_sp4fq")
 
 [node name="Black21" type="Sprite2D" parent="."]
 position = Vector2(160, 120)
 scale = Vector2(20, 15)
-texture = ExtResource("2_y7s4l")
+texture = ExtResource("2_kufqu")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 visible = false
 offset_right = 221.0
 offset_bottom = 160.0
-theme_override_fonts/normal_font = ExtResource("3_n407r")
+theme_override_fonts/normal_font = ExtResource("3_uxurs")
 text = "
-> c://documents/ozymandias/levels/village"
+> c://documents/ozymandias/levels/statue"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 visible = false
 offset_right = 221.0
 offset_bottom = 160.0
-theme_override_fonts/normal_font = ExtResource("3_n407r")
+theme_override_fonts/normal_font = ExtResource("3_uxurs")
 text = "
 
 
-> Last Modified: 1995-09-01"
+> Last Modified: 1995-10-31"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
 visible = false
 offset_right = 221.0
 offset_bottom = 160.0
-theme_override_fonts/normal_font = ExtResource("3_n407r")
+theme_override_fonts/normal_font = ExtResource("3_uxurs")
 text = "
-
-
-
-
-> Notes: Dev mode added for debugging.
-  Please use it."
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="."]
-visible = false
-offset_right = 221.0
-offset_bottom = 160.0
-theme_override_fonts/normal_font = ExtResource("3_n407r")
-text = "
-
-
-
 
 
 
 
 > Proceed ( y / n )"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+visible = false
+offset_right = 221.0
+offset_bottom = 160.0
+theme_override_fonts/normal_font = ExtResource("3_uxurs")
+text = "
+
+
+
+
+
+
+"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
