@@ -20,3 +20,5 @@ shape = SubResource("RectangleShape2D_v46r2")
 [node name="Sprite2D" type="Sprite2D" parent="Collider"]
 scale = Vector2(9.999999, 9.999999)
 texture = ExtResource("1_jseht")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

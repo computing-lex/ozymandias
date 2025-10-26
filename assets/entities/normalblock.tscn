@@ -1,10 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://kqemi18vkewi"]
+[gd_scene load_steps=8 format=3 uid="uid://kqemi18vkewi"]
 
 [ext_resource type="Script" uid="uid://djn0f2fm1ss4w" path="res://scripts/specialblock.gd" id="1_jin8r"]
-[ext_resource type="Texture2D" uid="uid://q8nw8f34m4yl" path="res://testassets/YELLOW.png" id="1_vq07p"]
+[ext_resource type="Texture2D" uid="uid://8jhrtwb46qk7" path="res://assets/tiles/NormalBlock-Sheet.png" id="2_jin8r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v46r2"]
 size = Vector2(160.00006, 160.00006)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uawds"]
+atlas = ExtResource("2_jin8r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_058kd"]
+atlas = ExtResource("2_jin8r")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xy23"]
+atlas = ExtResource("2_jin8r")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mbp5k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uawds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_058kd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xy23")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="normalblock" type="Node2D" groups=["Normal_Only"]]
 script = ExtResource("1_jin8r")
@@ -17,5 +46,7 @@ position = Vector2(9.5367395e-06, -1.5258777e-05)
 scale = Vector2(0.99999934, 0.99999934)
 shape = SubResource("RectangleShape2D_v46r2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_vq07p")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -8)
+sprite_frames = SubResource("SpriteFrames_mbp5k")
+frame_progress = 0.07637228

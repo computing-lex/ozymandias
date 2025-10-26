@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bdhotmdrbc6fx"]
+[gd_scene load_steps=18 format=4 uid="uid://bdhotmdrbc6fx"]
 
 [ext_resource type="Script" uid="uid://dq12x8qd43x2t" path="res://scripts/game.gd" id="1_d7tdo"]
 [ext_resource type="PackedScene" uid="uid://t85uo0d6i33e" path="res://assets/player/player.tscn" id="2_5fint"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://kqemi18vkewi" path="res://assets/entities/normalblock.tscn" id="14_p68n7"]
 [ext_resource type="PackedScene" uid="uid://c1qb7u4wrvs7p" path="res://assets/entities/gate.tscn" id="15_d0lgm"]
 [ext_resource type="Texture2D" uid="uid://be8fga83w74kc" path="res://assets/textures/sky.png" id="16_1lndh"]
+[ext_resource type="PackedScene" uid="uid://djifbdpx7doh1" path="res://assets/entities/great_serpent_player.tscn" id="17_37s47"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_d7tdo")
@@ -191,3 +192,7 @@ position = Vector2(1348.1249, 29)
 scale = Vector2(325.60938, 248.75)
 texture = ExtResource("16_1lndh")
 metadata/_edit_lock_ = true
+
+[node name="WindPlayer" parent="." instance=ExtResource("17_37s47")]
+position = Vector2(1754.0001, -218.99998)
+scale = Vector2(5.5200005, 31.439997)

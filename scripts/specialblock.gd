@@ -1,6 +1,10 @@
 extends Node2D
 
 @onready var Collider = $Collider
+@onready var Anim = $AnimatedSprite2D
+
+func _ready() -> void:
+	Anim.play("default")
 
 func _physics_process(delta: float) -> void:
 	if visible == false:
