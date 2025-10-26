@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://t85uo0d6i33e"]
+[gd_scene load_steps=36 format=3 uid="uid://t85uo0d6i33e"]
 
 [ext_resource type="Texture2D" uid="uid://b03oik66u1p2c" path="res://assets/player/player-Sheet-export.png" id="1_tb4ck"]
 [ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="2_h6syq"]
@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bvc163sy3bhy5" path="res://assets/textures/Debug_Buttonnormal.png" id="7_m2mll"]
 [ext_resource type="Texture2D" uid="uid://62uhpkk0csy" path="res://assets/textures/Coin.png" id="7_tb4ck"]
 [ext_resource type="Texture2D" uid="uid://dwn6mhu6qnjni" path="res://assets/textures/Debug_Buttonpress.png" id="8_hai6l"]
-[ext_resource type="AudioStream" uid="uid://c7geiscothlpa" path="res://assets/Sounds/coincollectsound.mp3" id="8_kwvpd"]
+[ext_resource type="AudioStream" uid="uid://cjsd8r20ahg82" path="res://assets/Sounds/game-start-fixed.mp3" id="8_m2mll"]
 [ext_resource type="AudioStream" uid="uid://b3tbc1lddvkj5" path="res://assets/Sounds/dying-sound.mp3" id="9_op4fd"]
 [ext_resource type="Texture2D" uid="uid://dgcmk6ykod8bo" path="res://assets/textures/Debug_Buttonhover.png" id="9_vlpqo"]
+[ext_resource type="AudioStream" uid="uid://d35m3o6hlom2m" path="res://assets/Sounds/jump-soundeffect.mp3" id="10_m2mll"]
 
 [sub_resource type="GDScript" id="GDScript_4flbx"]
 script/source = "extends CharacterBody2D
@@ -27,6 +28,7 @@ const JUMP_VELOCITY = -300.0
 
 @onready var CoinSound = $CoinSound
 @onready var Deathsound = $Deathsound
+@onready var Jumpsound = $Jumping
 
 @onready var Sprite_Anim = $AnimatedSprite2D
 
@@ -89,6 +91,7 @@ func _physics_process(delta: float) -> void:
 			
 			# Handle jump.
 			if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+				Jumpsound.play()
 				velocity.y = JUMP_VELOCITY
 
 			# Get the input direction and handle the movement/deceleration.
@@ -450,10 +453,16 @@ text = "0 x"
 horizontal_alignment = 2
 
 [node name="CoinSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_kwvpd")
+stream = ExtResource("8_m2mll")
+max_polyphony = 3
 
 [node name="Deathsound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_op4fd")
+
+[node name="Jumping" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_m2mll")
+volume_db = -19.351
+pitch_scale = 0.82
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]
