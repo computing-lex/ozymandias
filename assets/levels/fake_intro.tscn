@@ -1,6 +1,95 @@
-[gd_scene load_steps=2 format=3 uid="uid://wngnufbnmtdb"]
+[gd_scene load_steps=8 format=3 uid="uid://wngnufbnmtdb"]
 
 [ext_resource type="Script" uid="uid://bustkq4pwbmvs" path="res://scripts/fake_intro.gd" id="1_0d00e"]
+[ext_resource type="Texture2D" uid="uid://cohgb0qmlw8ii" path="res://assets/textures/tomosoft.png" id="2_8e2dy"]
+[ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="3_uahwa"]
+[ext_resource type="Texture2D" uid="uid://vyqe2oc17ctb" path="res://assets/textures/black21.png" id="4_uahwa"]
+
+[sub_resource type="Animation" id="Animation_uahwa"]
+resource_name = "Loading"
+length = 5.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProgressBar:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.62, 0.99, 1.24, 1.81, 2.03, 2.22, 2.62, 2.85, 3.55, 3.65, 5, 5.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.159, 0.159, 0.42, 0.42, 0.505, 0.621, 0.882, 0.983, 0.983, 0.99, 0.99, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_6pnyj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProgressBar:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6pnyj"]
+_data = {
+&"Loading": SubResource("Animation_uahwa"),
+&"RESET": SubResource("Animation_6pnyj")
+}
 
 [node name="FakeIntro" type="Node2D"]
 script = ExtResource("1_0d00e")
+
+[node name="Tomosoft" type="Sprite2D" parent="."]
+position = Vector2(102, 73)
+texture = ExtResource("2_8e2dy")
+
+[node name="ProgressBar" type="RichTextLabel" parent="."]
+offset_left = 40.0
+offset_top = 110.0
+offset_right = 177.0
+offset_bottom = 123.0
+theme_override_fonts/normal_font = ExtResource("3_uahwa")
+text = "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
+fit_content = true
+scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Black21" type="Sprite2D" parent="."]
+z_index = -20
+position = Vector2(109, 87)
+scale = Vector2(14.125, 11.625)
+texture = ExtResource("4_uahwa")
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = 1.0
+offset_top = 146.0
+offset_right = 212.0
+offset_bottom = 160.0
+theme_override_fonts/normal_font = ExtResource("3_uahwa")
+text = "COPYRIGHT (c) 1996 TomoSoft Games"
+
+[node name="ProgressText" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = -9.0
+offset_top = 110.0
+offset_right = 39.0
+offset_bottom = 124.0
+theme_override_fonts/normal_font = ExtResource("3_uahwa")
+text = "0%"
+horizontal_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6pnyj")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
