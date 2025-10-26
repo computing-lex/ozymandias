@@ -22,7 +22,7 @@ Global="*res://scripts/global.gd"
 
 [display]
 
-window/size/viewport_width=213
+window/size/viewport_width=240
 window/size/viewport_height=160
 window/stretch/mode="viewport"
 
@@ -50,3 +50,4 @@ I_Understand={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true

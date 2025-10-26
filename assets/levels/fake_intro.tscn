@@ -46,13 +46,13 @@ _data = {
 script = ExtResource("1_0d00e")
 
 [node name="Tomosoft" type="Sprite2D" parent="."]
-position = Vector2(102, 73)
+position = Vector2(124, 64)
 texture = ExtResource("2_8e2dy")
 
 [node name="ProgressBar" type="RichTextLabel" parent="."]
-offset_left = 40.0
+offset_left = 67.0
 offset_top = 110.0
-offset_right = 177.0
+offset_right = 204.0
 offset_bottom = 123.0
 theme_override_fonts/normal_font = ExtResource("3_uahwa")
 text = "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
@@ -63,25 +63,26 @@ visible_ratio = 0.0
 
 [node name="Black21" type="Sprite2D" parent="."]
 z_index = -20
-position = Vector2(109, 87)
-scale = Vector2(14.125, 11.625)
+position = Vector2(119.99999, 80)
+scale = Vector2(15, 10)
 texture = ExtResource("4_uahwa")
 metadata/_edit_lock_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 clip_contents = false
-offset_left = 1.0
-offset_top = 146.0
-offset_right = 212.0
-offset_bottom = 160.0
+offset_left = 15.0
+offset_top = 144.0
+offset_right = 226.0
+offset_bottom = 158.0
 theme_override_fonts/normal_font = ExtResource("3_uahwa")
 text = "COPYRIGHT (c) 1996 TomoSoft Games"
+horizontal_alignment = 1
 
 [node name="ProgressText" type="RichTextLabel" parent="."]
 clip_contents = false
-offset_left = -9.0
+offset_left = 18.0
 offset_top = 110.0
-offset_right = 39.0
+offset_right = 66.0
 offset_bottom = 124.0
 theme_override_fonts/normal_font = ExtResource("3_uahwa")
 text = "0%"
