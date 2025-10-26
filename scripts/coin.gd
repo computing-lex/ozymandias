@@ -9,6 +9,7 @@ func _ready() -> void:
 func _on_area_body_entered(body: Node2D) -> void:
 	if collected == false:
 		if body.is_in_group("Player"):
+			body.coinsound()
 			Global.Coins += 1
 			collected = true
 			queue_free()

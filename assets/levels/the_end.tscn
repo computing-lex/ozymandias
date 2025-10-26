@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhey1oqvor8xj"]
+[gd_scene load_steps=10 format=3 uid="uid://dhey1oqvor8xj"]
 
 [ext_resource type="Script" uid="uid://bn8mq5p6k6ar" path="res://scripts/the_end.gd" id="1_5fi1g"]
 [ext_resource type="Texture2D" uid="uid://vyqe2oc17ctb" path="res://assets/textures/black21.png" id="1_gsh33"]
 [ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="2_nprdg"]
 [ext_resource type="Texture2D" uid="uid://62uhpkk0csy" path="res://assets/textures/Coin.png" id="3_5fi1g"]
+[ext_resource type="AudioStream" uid="uid://iosx86v1yhjq" path="res://assets/Sounds/Trumpetvictorysound.mp3" id="5_q6vam"]
 
 [sub_resource type="Animation" id="Animation_nprdg"]
 resource_name = "Anim"
@@ -189,5 +190,8 @@ texture = ExtResource("3_5fi1g")
 libraries = {
 &"": SubResource("AnimationLibrary_q6vam")
 }
+
+[node name="FANFARE" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_q6vam")
 
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]

@@ -149,7 +149,7 @@ text = "
 
 
 
-> Proceed ( y / n )"
+> Note: sprint functionality added (SHIFT)"
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="."]
 visible = false
@@ -163,7 +163,7 @@ text = "
 
 
 
-"
+> Proceed ( y / n )"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

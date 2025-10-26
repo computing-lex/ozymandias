@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://nhwig2j86808"]
+[gd_scene load_steps=5 format=3 uid="uid://nhwig2j86808"]
 
 [ext_resource type="Script" uid="uid://c2j3tey8yfo2c" path="res://scripts/opening.gd" id="1_81ses"]
 [ext_resource type="Texture2D" uid="uid://vyqe2oc17ctb" path="res://assets/textures/black21.png" id="1_byipn"]
 [ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="2_v8qc4"]
+[ext_resource type="AudioStream" uid="uid://bmp8v44d0gsxv" path="res://assets/Sounds/old-desktop-pc-bootingsound.mp3" id="4_g07f5"]
 
 [node name="Opening" type="Node2D"]
 script = ExtResource("1_81ses")
@@ -24,3 +25,6 @@ text = "
   prosecuted under U.S. Copyright Codes
 
 > I understand ( y  / n  )"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_g07f5")

@@ -2,11 +2,13 @@ extends Node2D
 
 @onready var MoneyText = $MoneyText
 @onready var Anim = $Animation
+@onready var Fanfare = $FANFARE
 
 var Time_To_Move_On = false
 var next_scene = "res://assets/levels/credits.tscn"
 
 func _ready() -> void:
+	Fanfare.play()
 	MoneyText.text = "You generated "+str(Global.Coins)+" x "
 	Anim.play("Anim")
 
