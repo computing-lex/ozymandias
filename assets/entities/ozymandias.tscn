@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://by186l475idvk"]
+
+[ext_resource type="Texture2D" uid="uid://dfkmkbybj1mfw" path="res://assets/textures/statue.png" id="1_3kaeo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sx7su"]
+size = Vector2(80, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgy5g"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjyo7"]
+size = Vector2(53, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mg7dg"]
+size = Vector2(48, 64)
+
+[node name="OZYMANDIAS" type="Node2D"]
+
+[node name="Statue" type="Sprite2D" parent="."]
+position = Vector2(-56, -232)
+texture = ExtResource("1_3kaeo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-40, -104)
+shape = SubResource("RectangleShape2D_sx7su")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-96, -200)
+shape = SubResource("RectangleShape2D_tgy5g")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-37.5, -224)
+shape = SubResource("RectangleShape2D_fjyo7")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-40, -272)
+shape = SubResource("RectangleShape2D_mg7dg")

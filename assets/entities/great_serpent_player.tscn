@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://djifbdpx7doh1"]
 
-[ext_resource type="Script" uid="uid://dg46hpxigj1k3" path="res://assets/entities/great_serpent_player.gd" id="1_tgivg"]
+[ext_resource type="Script" uid="uid://dg46hpxigj1k3" path="res://scripts/great_serpent_player.gd" id="1_tgivg"]
 [ext_resource type="AudioStream" uid="uid://788ga6yowikv" path="res://assets/Music/suspensebackground.mp3" id="2_qgalw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_prbwa"]
