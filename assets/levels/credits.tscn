@@ -1,9 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcfe8kh1xyyfk"]
+[gd_scene load_steps=8 format=3 uid="uid://bcfe8kh1xyyfk"]
 
+[ext_resource type="Script" uid="uid://cef813ml1r5pc" path="res://scripts/credits.gd" id="1_usfrv"]
 [ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="2_2pixl"]
 [ext_resource type="Texture2D" uid="uid://vyqe2oc17ctb" path="res://assets/textures/black21.png" id="2_m2ewp"]
+[ext_resource type="AudioStream" uid="uid://bnpmad48esn3h" path="res://assets/Music/Credits.mp3" id="4_xkihd"]
+
+[sub_resource type="Animation" id="Animation_xkihd"]
+resource_name = "move text"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CreditText:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9.966666),
+"transitions": PackedFloat32Array(0.53588706, 1),
+"update": 0,
+"values": [Vector2(4, 161.215), Vector2(4, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m2ewp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CreditText:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pvpl0"]
+_data = {
+&"RESET": SubResource("Animation_m2ewp"),
+&"move text": SubResource("Animation_xkihd")
+}
 
 [node name="credits" type="Node2D"]
+script = ExtResource("1_usfrv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Control")
+libraries = {
+&"": SubResource("AnimationLibrary_pvpl0")
+}
 
 [node name="Black21" type="Sprite2D" parent="."]
 z_index = -1000
@@ -17,13 +63,14 @@ anchors_preset = 0
 offset_right = 240.0
 offset_bottom = 160.0
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control"]
+[node name="CreditText" type="RichTextLabel" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
+offset_bottom = -0.0011291504
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("2_2pixl")
@@ -31,4 +78,13 @@ text = "This game was created for SpookJam 2025 by Alex Brown, Hailey Peter, and
 
 
 
-Thank you for playing."
+
+
+
+Thank you for playing...
+
+		and maximizing shareholder value!"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_xkihd")
+autoplay = true
