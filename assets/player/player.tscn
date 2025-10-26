@@ -1,6 +1,6 @@
-[gd_scene load_steps=30 format=3 uid="uid://t85uo0d6i33e"]
+[gd_scene load_steps=33 format=3 uid="uid://t85uo0d6i33e"]
 
-[ext_resource type="Texture2D" uid="uid://dql64cmwdliq4" path="res://assets/player/player-Sheet.png" id="1_tb4ck"]
+[ext_resource type="Texture2D" uid="uid://b03oik66u1p2c" path="res://assets/player/player-Sheet-export.png" id="1_tb4ck"]
 [ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="2_h6syq"]
 [ext_resource type="Texture2D" uid="uid://vyqe2oc17ctb" path="res://assets/textures/black21.png" id="3_tb4ck"]
 [ext_resource type="Texture2D" uid="uid://bvc163sy3bhy5" path="res://assets/textures/Debug_Buttonnormal.png" id="7_m2mll"]
@@ -120,6 +120,7 @@ func _on_dev_button_pressed() -> void:
 
 func to_death():
 	dead = true
+	Sprite_Anim.play(\"die\")
 	death()
 
 func death():
@@ -138,42 +139,54 @@ func _on_fade_out_animation_finished(anim_name: StringName) -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(5, 10)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kwvpd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb4ck"]
 atlas = ExtResource("1_tb4ck")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_op4fd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwvpd"]
 atlas = ExtResource("1_tb4ck")
 region = Rect2(16, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_op4fd"]
+atlas = ExtResource("1_tb4ck")
+region = Rect2(112, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_m2mll"]
 atlas = ExtResource("1_tb4ck")
-region = Rect2(32, 0, 16, 16)
+region = Rect2(128, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hai6l"]
 atlas = ExtResource("1_tb4ck")
-region = Rect2(48, 0, 16, 16)
+region = Rect2(144, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vlpqo"]
 atlas = ExtResource("1_tb4ck")
-region = Rect2(64, 0, 16, 16)
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0eov8"]
 atlas = ExtResource("1_tb4ck")
-region = Rect2(80, 0, 16, 16)
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g7aau"]
+atlas = ExtResource("1_tb4ck")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d61i2"]
+atlas = ExtResource("1_tb4ck")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yx3jh"]
 atlas = ExtResource("1_tb4ck")
 region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d61i2"]
 animations = [{
 "frames": [{
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_kwvpd")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tb4ck")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_op4fd")
+"texture": SubResource("AtlasTexture_kwvpd")
 }],
 "loop": true,
 "name": &"default",
@@ -181,28 +194,42 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_op4fd")
+}, {
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_m2mll")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_hai6l")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlpqo")
 }],
 "loop": true,
 "name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.25,
-"texture": SubResource("AtlasTexture_hai6l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vlpqo")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0eov8")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g7aau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d61i2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yx3jh")
 }],
 "loop": true,
 "name": &"run",
-"speed": 10.0
+"speed": 8.0
 }]
 
 [sub_resource type="Theme" id="Theme_v2miy"]
@@ -307,6 +334,8 @@ shape = SubResource("RectangleShape2D_onrkg")
 z_index = 600
 position = Vector2(-4.7683716e-07, -9.536743e-07)
 sprite_frames = SubResource("SpriteFrames_d61i2")
+animation = &"run"
+frame_progress = 0.4728096
 
 [node name="Camera" type="Camera2D" parent="."]
 
