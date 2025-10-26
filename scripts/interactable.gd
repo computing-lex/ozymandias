@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var Is_Miku = false
+@export var villager_number = "1" # from 1 to 4
+@export var is_villager = false
 @export var Text1 = ""
 
 @export var Use_States = false
@@ -19,6 +21,8 @@ extends Node2D
 func _ready() -> void:
 	if Is_Miku == true:
 		Visual.play("default")
+	elif is_villager == true:
+		Visual.play(villager_number)
 
 func _physics_process(delta: float) -> void:
 	if visible == false:
