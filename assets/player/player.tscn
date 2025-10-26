@@ -90,15 +90,16 @@ func _physics_process(delta: float) -> void:
 				ReadState = 0
 		
 		move_and_slide()
-	if is_on_floor():
-		if velocity.x > 0:
-			Sprite_Anim.play(\"run\")
-			Sprite_Anim.scale.x = 1
-		elif velocity.x < 0:
-			Sprite_Anim.play(\"run\")
-			Sprite_Anim.scale.x = -1
-		else:
-			Sprite_Anim.play(\"default\")
+	if dead == false:
+		if is_on_floor():
+			if velocity.x > 0:
+				Sprite_Anim.play(\"run\")
+				Sprite_Anim.scale.x = 1
+			elif velocity.x < 0:
+				Sprite_Anim.play(\"run\")
+				Sprite_Anim.scale.x = -1
+			else:
+				Sprite_Anim.play(\"default\")
 
 func display_dialogue_text(dialogue_input):
 	Dialogue.visible = true
@@ -121,7 +122,6 @@ func _on_dev_button_pressed() -> void:
 func to_death():
 	dead = true
 	Sprite_Anim.play(\"die\")
-	death()
 
 func death():
 	for Child in get_parent().get_children():
@@ -134,6 +134,11 @@ func death():
 func _on_fade_out_animation_finished(anim_name: StringName) -> void:
 	if anim_name == \"BlackFade\":
 		get_tree().change_scene_to_file(\"res://assets/levels/\"+next_level+\".tscn\")
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if dead == true:
+		death()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
@@ -202,7 +207,7 @@ animations = [{
 "duration": 5.0,
 "texture": SubResource("AtlasTexture_hai6l")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
 "speed": 5.0
 }, {
@@ -334,8 +339,7 @@ shape = SubResource("RectangleShape2D_onrkg")
 z_index = 600
 position = Vector2(-4.7683716e-07, -9.536743e-07)
 sprite_frames = SubResource("SpriteFrames_d61i2")
-animation = &"run"
-frame_progress = 0.4728096
+animation = &"die"
 
 [node name="Camera" type="Camera2D" parent="."]
 
@@ -422,6 +426,7 @@ theme_override_fonts/normal_font = ExtResource("2_h6syq")
 text = "0 x"
 horizontal_alignment = 2
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]
 [connection signal="pressed" from="DevButton" to="." method="_on_dev_button_pressed"]
 [connection signal="animation_finished" from="FadeOut" to="." method="_on_fade_out_animation_finished"]
