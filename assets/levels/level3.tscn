@@ -437,3 +437,12 @@ position = Vector2(1384, -24)
 [node name="Dev_Note11" parent="." instance=ExtResource("9_xowc7")]
 position = Vector2(1496, -56)
 Text1 = "// im so tired"
+
+[node name="normalblock30" parent="." instance=ExtResource("14_1sj62")]
+position = Vector2(1176, -296)
+
+[node name="normalblock31" parent="." instance=ExtResource("14_1sj62")]
+position = Vector2(1192, -296)
+
+[node name="Coin8" parent="." instance=ExtResource("13_2bi0i")]
+position = Vector2(1176, -314)
