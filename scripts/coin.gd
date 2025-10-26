@@ -2,6 +2,7 @@ extends Node2D
 
 var collected = false
 @onready var Anim = $AnimatedSprite2D
+@onready var Audio = $AudioStreamPlayer2D
 
 func _ready() -> void:
 	Anim.play("default")

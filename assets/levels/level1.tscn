@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bdhotmdrbc6fx"]
+[gd_scene load_steps=20 format=4 uid="uid://bdhotmdrbc6fx"]
 
 [ext_resource type="Script" uid="uid://dq12x8qd43x2t" path="res://scripts/game.gd" id="1_d7tdo"]
 [ext_resource type="PackedScene" uid="uid://t85uo0d6i33e" path="res://assets/player/player.tscn" id="2_5fint"]
@@ -11,13 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://o555nts6aw8u" path="res://assets/entities/go_right.tscn" id="11_pcd67"]
 [ext_resource type="PackedScene" uid="uid://cmeoqgyppq3uj" path="res://assets/entities/villager.tscn" id="11_ywjg5"]
 [ext_resource type="PackedScene" uid="uid://dti45j1gaqkpn" path="res://assets/entities/coin.tscn" id="12_pcd67"]
-[ext_resource type="PackedScene" uid="uid://dbhq6m2tvrly2" path="res://assets/entities/dev_note.tscn" id="13_p68n7"]
-[ext_resource type="PackedScene" uid="uid://pk3exbol5d32" path="res://assets/entities/THE_GREAT SERPENT.tscn" id="13_ywjg5"]
+[ext_resource type="PackedScene" uid="uid://ga6mu5m2hndo" path="res://assets/entities/dev_note.tscn" id="13_p68n7"]
+[ext_resource type="PackedScene" path="res://assets/entities/THE_GREAT SERPENT.tscn" id="13_ywjg5"]
 [ext_resource type="PackedScene" uid="uid://kqemi18vkewi" path="res://assets/entities/normalblock.tscn" id="14_p68n7"]
 [ext_resource type="PackedScene" uid="uid://c1qb7u4wrvs7p" path="res://assets/entities/gate.tscn" id="15_d0lgm"]
 [ext_resource type="Texture2D" uid="uid://be8fga83w74kc" path="res://assets/textures/sky.png" id="16_1lndh"]
-[ext_resource type="PackedScene" uid="uid://djifbdpx7doh1" path="res://assets/entities/great_serpent_player.tscn" id="17_37s47"]
-[ext_resource type="PackedScene" uid="uid://w4j83otwevke" path="res://assets/entities/MIKU.tscn" id="18_0d3wv"]
+[ext_resource type="PackedScene" path="res://assets/entities/great_serpent_player.tscn" id="17_37s47"]
+[ext_resource type="PackedScene" path="res://assets/entities/MIKU.tscn" id="18_0d3wv"]
+[ext_resource type="AudioStream" uid="uid://dvdq38s1g0kt5" path="res://assets/Music/VillegeBackgroundwith8-bitsounds.mp3" id="19_nvlcp"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_d7tdo")
@@ -210,3 +211,8 @@ scale = Vector2(5.5200005, 31.439997)
 [node name="Interactable12" parent="." instance=ExtResource("18_0d3wv")]
 position = Vector2(1000, -24)
 Text1 = "\"My name is Miku. I live in the pit. It's a simple life, but I like it.\""
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_nvlcp")
+autoplay = true
+max_distance = 1700.0

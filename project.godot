@@ -33,6 +33,7 @@ Dev_Only=""
 Checkpoints=""
 Enemies=""
 Spawner=""
+Coin=""
 
 [input]
 

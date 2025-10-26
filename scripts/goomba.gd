@@ -10,8 +10,14 @@ var heading = "Right"
 @onready var DeathTimer = $Timer
 @onready var Visual = $Visual
 
+@onready var Sound = $AudioStreamPlayer2D
+
 func _ready() -> void:
 	Visual.play("default")
+
+func _process(delta: float) -> void:
+	if randf() > 0.5:
+		Sound.play()
 
 func _physics_process(delta: float) -> void:
 	if visible == true:
@@ -44,6 +50,7 @@ func _on_hit_zone_body_entered(body: Node2D) -> void:
 					death()
 
 func death():
+	Sound.play()
 	Visual.play("dead")
 
 func _on_timer_timeout() -> void:
