@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcfe8kh1xyyfk"]
+[gd_scene load_steps=3 format=3 uid="uid://bcfe8kh1xyyfk"]
 
+[ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="2_2pixl"]
 [ext_resource type="Texture2D" uid="uid://vyqe2oc17ctb" path="res://assets/textures/black21.png" id="2_m2ewp"]
 
 [node name="credits" type="Node2D"]
@@ -9,3 +10,25 @@ z_index = -1000
 position = Vector2(120.00001, 79.99999)
 scale = Vector2(14.999999, 9.999999)
 texture = ExtResource("2_m2ewp")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 240.0
+offset_bottom = 160.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_2pixl")
+text = "This game was created for SpookJam 2025 by Alex Brown, Hailey Peter, and Alexis Tjarks, in 30 hours.
+
+
+
+Thank you for playing."
