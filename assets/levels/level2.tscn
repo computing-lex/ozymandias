@@ -714,3 +714,9 @@ position = Vector2(4392, -312)
 [node name="Gate" parent="." instance=ExtResource("18_8rxyl")]
 position = Vector2(4456, -264)
 next_level = "prelevel3"
+
+[node name="Coin25" parent="." instance=ExtResource("9_qnoyk")]
+position = Vector2(806, -106)
+
+[node name="Coin26" parent="." instance=ExtResource("9_qnoyk")]
+position = Vector2(824, -106)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0og20mni8tai"]
+[gd_scene load_steps=7 format=3 uid="uid://ndls4q4uylpq"]
 
-[ext_resource type="Script" uid="uid://ctiijcujti6a0" path="res://scripts/prelevel_3.gd" id="1_sp4fq"]
-[ext_resource type="Texture2D" uid="uid://vyqe2oc17ctb" path="res://assets/textures/black21.png" id="2_kufqu"]
-[ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="3_uxurs"]
+[ext_resource type="Script" uid="uid://bmod1gk7sr05" path="res://scripts/prelevel4.gd" id="1_rmm5i"]
+[ext_resource type="Texture2D" uid="uid://vyqe2oc17ctb" path="res://assets/textures/black21.png" id="2_ofgci"]
+[ext_resource type="FontFile" uid="uid://b180ngqbauhqp" path="res://assets/fonts/m5x7.ttf" id="3_trg5a"]
 
 [sub_resource type="Animation" id="Animation_jp2hu"]
 length = 0.001
@@ -21,7 +21,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RichTextLabel2:visible")
+tracks/1/path = NodePath("TheSpecialText:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -73,7 +73,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RichTextLabel2:visible")
+tracks/1/path = NodePath("TheSpecialText:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -113,27 +113,27 @@ _data = {
 &"reveal": SubResource("Animation_ghl75")
 }
 
-[node name="prelevel3" type="Node2D"]
-script = ExtResource("1_sp4fq")
+[node name="prelevel4" type="Node2D"]
+script = ExtResource("1_rmm5i")
 
 [node name="Black21" type="Sprite2D" parent="."]
 position = Vector2(160, 120)
 scale = Vector2(20, 15)
-texture = ExtResource("2_kufqu")
+texture = ExtResource("2_ofgci")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 visible = false
 offset_right = 221.0
 offset_bottom = 160.0
-theme_override_fonts/normal_font = ExtResource("3_uxurs")
+theme_override_fonts/normal_font = ExtResource("3_trg5a")
 text = "
-> c://documents/ozymandias/levels/statue"
+> c://documents/ozymandias/levels/decay"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+[node name="TheSpecialText" type="RichTextLabel" parent="."]
 visible = false
 offset_right = 221.0
 offset_bottom = 160.0
-theme_override_fonts/normal_font = ExtResource("3_uxurs")
+theme_override_fonts/normal_font = ExtResource("3_trg5a")
 text = "
 
 
@@ -143,7 +143,7 @@ text = "
 visible = false
 offset_right = 221.0
 offset_bottom = 160.0
-theme_override_fonts/normal_font = ExtResource("3_uxurs")
+theme_override_fonts/normal_font = ExtResource("3_trg5a")
 text = "
 
 
@@ -155,7 +155,7 @@ text = "
 visible = false
 offset_right = 221.0
 offset_bottom = 160.0
-theme_override_fonts/normal_font = ExtResource("3_uxurs")
+theme_override_fonts/normal_font = ExtResource("3_trg5a")
 text = "
 
 
