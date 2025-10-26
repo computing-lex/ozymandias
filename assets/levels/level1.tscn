@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bdhotmdrbc6fx"]
+[gd_scene load_steps=19 format=4 uid="uid://bdhotmdrbc6fx"]
 
 [ext_resource type="Script" uid="uid://dq12x8qd43x2t" path="res://scripts/game.gd" id="1_d7tdo"]
 [ext_resource type="PackedScene" uid="uid://t85uo0d6i33e" path="res://assets/player/player.tscn" id="2_5fint"]
@@ -11,12 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://o555nts6aw8u" path="res://assets/entities/go_right.tscn" id="11_pcd67"]
 [ext_resource type="PackedScene" uid="uid://cmeoqgyppq3uj" path="res://assets/entities/villager.tscn" id="11_ywjg5"]
 [ext_resource type="PackedScene" uid="uid://dti45j1gaqkpn" path="res://assets/entities/coin.tscn" id="12_pcd67"]
-[ext_resource type="PackedScene" uid="uid://ga6mu5m2hndo" path="res://assets/entities/dev_note.tscn" id="13_p68n7"]
-[ext_resource type="PackedScene" path="res://assets/entities/THE_GREAT SERPENT.tscn" id="13_ywjg5"]
+[ext_resource type="PackedScene" uid="uid://dbhq6m2tvrly2" path="res://assets/entities/dev_note.tscn" id="13_p68n7"]
+[ext_resource type="PackedScene" uid="uid://pk3exbol5d32" path="res://assets/entities/THE_GREAT SERPENT.tscn" id="13_ywjg5"]
 [ext_resource type="PackedScene" uid="uid://kqemi18vkewi" path="res://assets/entities/normalblock.tscn" id="14_p68n7"]
 [ext_resource type="PackedScene" uid="uid://c1qb7u4wrvs7p" path="res://assets/entities/gate.tscn" id="15_d0lgm"]
 [ext_resource type="Texture2D" uid="uid://be8fga83w74kc" path="res://assets/textures/sky.png" id="16_1lndh"]
-[ext_resource type="PackedScene" path="res://assets/entities/great_serpent_player.tscn" id="17_37s47"]
+[ext_resource type="PackedScene" uid="uid://djifbdpx7doh1" path="res://assets/entities/great_serpent_player.tscn" id="17_37s47"]
+[ext_resource type="PackedScene" uid="uid://w4j83otwevke" path="res://assets/entities/MIKU.tscn" id="18_0d3wv"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_d7tdo")
@@ -29,6 +30,7 @@ tile_map_data = PackedByteArray("AAAAAAEAAAAAAAAAAAABAAEAAAABAAAAAAACAAEAAAAAAAA
 
 [node name="Interactable" parent="." instance=ExtResource("11_ywjg5")]
 position = Vector2(330, -8)
+villager_number = "2"
 is_villager = true
 Text1 = "\"I've always wanted to be a c limber. Too bad the king only needs masons...\""
 
@@ -44,6 +46,7 @@ position = Vector2(216, -44)
 
 [node name="Interactable2" parent="." instance=ExtResource("11_ywjg5")]
 position = Vector2(108, 8)
+is_villager = true
 Text1 = "\"They're calling for you at the quarry... you should really get going.\""
 
 [node name="Coin" parent="." instance=ExtResource("12_pcd67")]
@@ -58,10 +61,13 @@ Text1 = "// I'd imagine it's quite a lovely view up here..."
 
 [node name="Interactable3" parent="." instance=ExtResource("11_ywjg5")]
 position = Vector2(376, -72)
+is_villager = true
 Text1 = "\"I heard some snakes got loose in town. Hope it's just a rumor.\""
 
 [node name="Interactable4" parent="." instance=ExtResource("11_ywjg5")]
 position = Vector2(552, -88)
+villager_number = "3"
+is_villager = true
 Text1 = "\"I've been stuck here all day! That scaly beast just won't move.\""
 
 [node name="Coin3" parent="." instance=ExtResource("12_pcd67")]
@@ -85,6 +91,7 @@ position = Vector2(716, -24)
 
 [node name="Interactable5" parent="." instance=ExtResource("11_ywjg5")]
 position = Vector2(756, -24)
+is_villager = true
 Text1 = "\"I'm not afraid of the snakes. If they ever cause you trouble, just stomp 'em in the head!\""
 
 [node name="Spawner2" parent="." instance=ExtResource("11_5u7d1")]
@@ -107,10 +114,6 @@ position = Vector2(1140, -104)
 [node name="Go_Right3" parent="." instance=ExtResource("11_pcd67")]
 position = Vector2(1020, -104)
 
-[node name="Interactable6" parent="." instance=ExtResource("11_ywjg5")]
-position = Vector2(1000, -24)
-Text1 = "\"My name is Silas. I live in the pit. It's a simple life, but I like it.\""
-
 [node name="Coin6" parent="." instance=ExtResource("12_pcd67")]
 position = Vector2(1096, -124)
 
@@ -119,7 +122,7 @@ position = Vector2(1116, -124)
 
 [node name="Dev_Note2" parent="." instance=ExtResource("13_p68n7")]
 position = Vector2(1016, -56)
-Text1 = "// Every day I strive to be like Silas..."
+Text1 = "// Every day I strive to be like Miku..."
 
 [node name="Go_Right4" parent="." instance=ExtResource("11_pcd67")]
 position = Vector2(1132, -56)
@@ -139,10 +142,14 @@ position = Vector2(1268, -76)
 
 [node name="Interactable7" parent="." instance=ExtResource("11_ywjg5")]
 position = Vector2(1296, -56)
+villager_number = "2"
+is_villager = true
 Text1 = "\"Our town is completely overrun with these monsters! And I'm gonna be late to work!\""
 
 [node name="Interactable8" parent="." instance=ExtResource("11_ywjg5")]
 position = Vector2(1636, -56)
+villager_number = "3"
+is_villager = true
 Text1 = "\"There's a problem... just past the edge of town is something truly monstrous--THE GREAT SERPENT!\""
 
 [node name="Interactable9" parent="." instance=ExtResource("11_ywjg5")]
@@ -151,6 +158,8 @@ Text1 = "\"We have quotas to meet...\""
 
 [node name="Interactable10" parent="." instance=ExtResource("11_ywjg5")]
 position = Vector2(1684, -56)
+villager_number = "2"
+is_villager = true
 Text1 = "\"Please help us!\""
 
 [node name="Coin10" parent="." instance=ExtResource("12_pcd67")]
@@ -197,3 +206,7 @@ metadata/_edit_lock_ = true
 [node name="WindPlayer" parent="." instance=ExtResource("17_37s47")]
 position = Vector2(1754.0001, -218.99998)
 scale = Vector2(5.5200005, 31.439997)
+
+[node name="Interactable12" parent="." instance=ExtResource("18_0d3wv")]
+position = Vector2(1000, -24)
+Text1 = "\"My name is Miku. I live in the pit. It's a simple life, but I like it.\""

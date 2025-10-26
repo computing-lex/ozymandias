@@ -35,6 +35,8 @@ var CheckPoint = 0
 
 var dead = false
 
+var is_dying = false
+
 func _ready():
 	Dialogue.visible = false
 
@@ -127,8 +129,9 @@ func _on_dev_button_pressed() -> void:
 
 func to_death():
 	dead = true
-	if Sprite_Anim.animation != \"die\":
+	if is_dying == false:
 		Sprite_Anim.play(\"die\")
+		is_dying = true
 
 func death():
 	for Child in get_parent().get_children():
@@ -137,6 +140,7 @@ func death():
 				position = Child.position
 	get_parent().reset_enemies()
 	dead = false
+	is_dying = false
 
 func _on_fade_out_animation_finished(anim_name: StringName) -> void:
 	if anim_name == \"BlackFade\":
@@ -145,7 +149,8 @@ func _on_fade_out_animation_finished(anim_name: StringName) -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if dead == true:
-		death()
+		if is_dying == true:
+			death()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]

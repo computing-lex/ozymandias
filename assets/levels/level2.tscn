@@ -77,6 +77,7 @@ scale = Vector2(366.5545, 6.2967806)
 
 [node name="Interactable" parent="." instance=ExtResource("7_ta7fs")]
 position = Vector2(121, 8)
+is_villager = true
 Text1 = "\"Keep it moving! You may have slain the great serpent and saved the village, but there's still work to get done! The King must have his statue.\""
 
 [node name="Dev_Note" parent="." instance=ExtResource("8_rwkqs")]
@@ -103,10 +104,14 @@ position = Vector2(312, 24)
 
 [node name="Interactable3" parent="." instance=ExtResource("7_ta7fs")]
 position = Vector2(309, 104)
+villager_number = "3"
+is_villager = true
 Text1 = "\"I'm so tired of digging at this rock...\""
 
 [node name="Interactable4" parent="." instance=ExtResource("7_ta7fs")]
 position = Vector2(246, 104)
+villager_number = "2"
+is_villager = true
 Text1 = "\"Heave ho!\""
 
 [node name="Dev_Note2" parent="." instance=ExtResource("8_rwkqs")]
@@ -115,22 +120,31 @@ Text1 = "// Me too..."
 
 [node name="Interactable2" parent="." instance=ExtResource("7_ta7fs")]
 position = Vector2(378, 8)
+villager_number = "3"
+is_villager = true
 Text1 = "\"I've heard the King is strong enough to move mountains. Now we move one in his name.\""
 
 [node name="Interactable5" parent="." instance=ExtResource("7_ta7fs")]
 position = Vector2(486, 8)
+villager_number = "3"
+is_villager = true
 Text1 = "\"Strike the Earth!\""
 
 [node name="Interactable6" parent="." instance=ExtResource("7_ta7fs")]
 position = Vector2(524, 8)
+villager_number = "2"
+is_villager = true
 Text1 = "\"No reward for our toil...\""
 
 [node name="Interactable7" parent="." instance=ExtResource("7_ta7fs")]
 position = Vector2(442, -40)
+is_villager = true
 Text1 = "\"The King is a great man--we will give him a great statue.\""
 
 [node name="Interactable8" parent="." instance=ExtResource("7_ta7fs")]
 position = Vector2(549, -40)
+villager_number = "3"
+is_villager = true
 Text1 = "\"Take only the good stones; leave those sharp ones behind in the pits.\""
 
 [node name="Coin" parent="." instance=ExtResource("9_qnoyk")]
@@ -182,6 +196,7 @@ Text1 = "// Was testing movement here. Will fill in platforms later"
 
 [node name="Interactable9" parent="." instance=ExtResource("7_ta7fs")]
 position = Vector2(1320, -56)
+is_villager = true
 Text1 = "\"We've dug these pits empty. You'll need to go deeper.\""
 
 [node name="devblock13" parent="." instance=ExtResource("9_oimrm")]
@@ -312,6 +327,8 @@ Checkpoint = 1
 
 [node name="Interactable10" parent="." instance=ExtResource("7_ta7fs")]
 position = Vector2(1752, 120)
+villager_number = "3"
+is_villager = true
 Text1 = "\"I don't like it in here... I hear strange sounds up ahead.\""
 
 [node name="devblock23" parent="." instance=ExtResource("9_oimrm")]
@@ -439,6 +456,7 @@ position = Vector2(2344, 104)
 
 [node name="Interactable11" parent="." instance=ExtResource("7_ta7fs")]
 position = Vector2(2792, 120)
+is_villager = true
 Text1 = "\"There's a scorpion up ahead... I tried to stomp it, and it took off my leg... I don't think I'll make it much further...\""
 
 [node name="Savepoint2" parent="." instance=ExtResource("14_4u0ay")]
@@ -589,6 +607,8 @@ Text1 = "// Apparently there's going to be a second boss here. A 'Scorpion Queen
 
 [node name="Interactable12" parent="." instance=ExtResource("7_ta7fs")]
 position = Vector2(3544, 152)
+villager_number = "2"
+is_villager = true
 Text1 = "\"The cave collapsed in here... At least the scorpions can't get me. I want to go home...\""
 
 [node name="Dev_Note13" parent="." instance=ExtResource("8_rwkqs")]
@@ -638,6 +658,8 @@ position = Vector2(3992, 8)
 
 [node name="Interactable13" parent="." instance=ExtResource("7_ta7fs")]
 position = Vector2(4168, 104)
+villager_number = "3"
+is_villager = true
 Text1 = "\"The ground collapsed... it swallowed them all. Now I have to carry all these stones up myself...\""
 
 [node name="devblock43" parent="." instance=ExtResource("9_oimrm")]
@@ -689,10 +711,13 @@ position = Vector2(4232, -152)
 
 [node name="Interactable14" parent="." instance=ExtResource("7_ta7fs")]
 position = Vector2(4328, -264)
+villager_number = "2"
+is_villager = true
 Text1 = "\"It's hell down there. We risked our lives for a pile of rocks.\""
 
 [node name="Interactable15" parent="." instance=ExtResource("7_ta7fs")]
 position = Vector2(4360, -264)
+is_villager = true
 Text1 = "\"It'll all be worth it. The statue will honor our king for eons to come.\""
 
 [node name="Dev_Note17" parent="." instance=ExtResource("8_rwkqs")]
