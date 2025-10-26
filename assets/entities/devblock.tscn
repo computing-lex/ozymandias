@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://t1800mv1fdrt"]
+[gd_scene load_steps=6 format=3 uid="uid://t1800mv1fdrt"]
 
 [ext_resource type="Script" uid="uid://djn0f2fm1ss4w" path="res://scripts/specialblock.gd" id="1_bgq68"]
-[ext_resource type="Texture2D" uid="uid://ejrddxtnpaxq" path="res://testassets/RED.png" id="1_jseht"]
+[ext_resource type="Texture2D" uid="uid://dj5s5fpcyxswv" path="res://assets/tiles/DevBlock.png" id="2_bgq68"]
+[ext_resource type="Shader" uid="uid://c76c5bda4tua3" path="res://assets/levels/devShader.gdshader" id="2_nyw2t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v46r2"]
 size = Vector2(160.00006, 160.00006)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c1y55"]
+shader = ExtResource("2_nyw2t")
+shader_parameter/dev_mode = true
 
 [node name="devblock" type="Node2D" groups=["Dev_Only"]]
 script = ExtResource("1_bgq68")
@@ -18,7 +23,9 @@ scale = Vector2(0.99999934, 0.99999934)
 shape = SubResource("RectangleShape2D_v46r2")
 
 [node name="Sprite2D" type="Sprite2D" parent="Collider"]
+material = SubResource("ShaderMaterial_c1y55")
+position = Vector2(80, -80)
 scale = Vector2(9.999999, 9.999999)
-texture = ExtResource("1_jseht")
+texture = ExtResource("2_bgq68")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
