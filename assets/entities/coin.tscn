@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dti45j1gaqkpn"]
+[gd_scene load_steps=9 format=3 uid="uid://dti45j1gaqkpn"]
 
 [ext_resource type="Script" uid="uid://cyi4cbnge2x88" path="res://scripts/coin.gd" id="1_85efn"]
 [ext_resource type="Texture2D" uid="uid://d16ypxxvgo3uh" path="res://assets/textures/Coinanimation1.png" id="1_baa47"]
 [ext_resource type="Texture2D" uid="uid://b7thc7vfor7xp" path="res://assets/textures/Coinanimation2.png" id="2_85efn"]
 [ext_resource type="Texture2D" uid="uid://bmyj2vj5x6m2p" path="res://assets/textures/Coinanimation3.png" id="3_7kc5k"]
 [ext_resource type="Texture2D" uid="uid://quduvr4yje08" path="res://assets/textures/Coinanimation4.png" id="4_jfi4o"]
+[ext_resource type="Script" uid="uid://cxxihgo8typ3o" path="res://assets/Sounds/coinsound.gd" id="6_7kc5k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tl4hw"]
 animations = [{
@@ -46,5 +47,6 @@ frame_progress = 0.13967296
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
 shape = SubResource("CircleShape2D_baa47")
+script = ExtResource("6_7kc5k")
 
 [connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
