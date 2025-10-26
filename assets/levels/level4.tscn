@@ -274,3 +274,339 @@ position = Vector2(2104, 40)
 [node name="WindPlayer" parent="." instance=ExtResource("11_k57a3")]
 position = Vector2(88, -8)
 scale = Vector2(15.177491, 16.472698)
+
+[node name="devblock13" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(888, -40)
+
+[node name="devblock14" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(888, -56)
+
+[node name="devblock15" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(888, -72)
+
+[node name="devblock16" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(888, -88)
+
+[node name="devblock17" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(888, -104)
+
+[node name="devblock18" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(888, -120)
+
+[node name="devblock19" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(888, -136)
+
+[node name="devblock20" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(888, -152)
+
+[node name="devblock21" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(888, -168)
+
+[node name="devblock22" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(888, -184)
+
+[node name="devblock23" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(888, -200)
+
+[node name="devblock24" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(888, -216)
+
+[node name="devblock25" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(888, -232)
+
+[node name="devblock26" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(888, -248)
+
+[node name="devblock27" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(888, -264)
+
+[node name="devblock28" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(888, -280)
+
+[node name="normalblock57" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(792, -40)
+
+[node name="normalblock58" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(792, -56)
+
+[node name="normalblock59" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(792, -72)
+
+[node name="normalblock60" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(792, -88)
+
+[node name="normalblock61" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(792, -104)
+
+[node name="normalblock62" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(792, -120)
+
+[node name="normalblock63" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(792, -136)
+
+[node name="normalblock64" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(792, -152)
+
+[node name="normalblock65" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(792, -168)
+
+[node name="normalblock66" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(792, -184)
+
+[node name="normalblock67" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(792, -200)
+
+[node name="normalblock68" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(792, -216)
+
+[node name="normalblock69" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(792, -232)
+
+[node name="normalblock70" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(792, -248)
+
+[node name="normalblock71" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(792, -264)
+
+[node name="normalblock72" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(792, -280)
+
+[node name="devblock29" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1080, -40)
+
+[node name="devblock30" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1080, -56)
+
+[node name="devblock31" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1080, -72)
+
+[node name="devblock32" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1080, -88)
+
+[node name="devblock33" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1080, -104)
+
+[node name="devblock34" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1080, -120)
+
+[node name="devblock35" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1080, -136)
+
+[node name="devblock36" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1080, -152)
+
+[node name="devblock37" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1080, -168)
+
+[node name="devblock38" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1080, -184)
+
+[node name="devblock39" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1080, -200)
+
+[node name="devblock40" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1080, -216)
+
+[node name="devblock41" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1080, -232)
+
+[node name="devblock42" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1080, -248)
+
+[node name="devblock43" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1080, -264)
+
+[node name="devblock44" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1080, -280)
+
+[node name="normalblock73" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(984, -40)
+
+[node name="normalblock74" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(984, -56)
+
+[node name="normalblock75" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(984, -72)
+
+[node name="normalblock76" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(984, -88)
+
+[node name="normalblock77" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(984, -104)
+
+[node name="normalblock78" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(984, -120)
+
+[node name="normalblock79" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(984, -136)
+
+[node name="normalblock80" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(984, -152)
+
+[node name="normalblock81" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(984, -168)
+
+[node name="normalblock82" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(984, -184)
+
+[node name="normalblock83" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(984, -200)
+
+[node name="normalblock84" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(984, -216)
+
+[node name="normalblock85" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(984, -232)
+
+[node name="normalblock86" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(984, -248)
+
+[node name="normalblock87" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(984, -264)
+
+[node name="normalblock88" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(984, -280)
+
+[node name="devblock45" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1272, -40)
+
+[node name="devblock46" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1272, -56)
+
+[node name="devblock47" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1272, -72)
+
+[node name="devblock48" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1272, -88)
+
+[node name="devblock49" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1272, -104)
+
+[node name="devblock50" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1272, -120)
+
+[node name="devblock51" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1272, -136)
+
+[node name="devblock52" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1272, -152)
+
+[node name="devblock53" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1272, -168)
+
+[node name="devblock54" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1272, -184)
+
+[node name="devblock55" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1272, -200)
+
+[node name="devblock56" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1272, -216)
+
+[node name="devblock57" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1272, -232)
+
+[node name="devblock58" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1272, -248)
+
+[node name="devblock59" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1272, -264)
+
+[node name="devblock60" parent="." instance=ExtResource("8_lo4sx")]
+position = Vector2(1272, -280)
+
+[node name="normalblock89" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1176, -40)
+
+[node name="normalblock90" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1176, -56)
+
+[node name="normalblock91" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1176, -72)
+
+[node name="normalblock92" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1176, -88)
+
+[node name="normalblock93" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1176, -104)
+
+[node name="normalblock94" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1176, -120)
+
+[node name="normalblock95" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1176, -136)
+
+[node name="normalblock96" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1176, -152)
+
+[node name="normalblock97" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1176, -168)
+
+[node name="normalblock98" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1176, -184)
+
+[node name="normalblock99" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1176, -200)
+
+[node name="normalblock100" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1176, -216)
+
+[node name="normalblock101" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1176, -232)
+
+[node name="normalblock102" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1176, -248)
+
+[node name="normalblock103" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1176, -264)
+
+[node name="normalblock104" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1176, -280)
+
+[node name="normalblock105" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1368, -40)
+
+[node name="normalblock106" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1368, -56)
+
+[node name="normalblock107" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1368, -72)
+
+[node name="normalblock108" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1368, -88)
+
+[node name="normalblock109" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1368, -104)
+
+[node name="normalblock110" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1368, -120)
+
+[node name="normalblock111" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1368, -136)
+
+[node name="normalblock112" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1368, -152)
+
+[node name="normalblock113" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1368, -168)
+
+[node name="normalblock114" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1368, -184)
+
+[node name="normalblock115" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1368, -200)
+
+[node name="normalblock116" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1368, -216)
+
+[node name="normalblock117" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1368, -232)
+
+[node name="normalblock118" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1368, -248)
+
+[node name="normalblock119" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1368, -264)
+
+[node name="normalblock120" parent="." instance=ExtResource("14_3lxqw")]
+position = Vector2(1368, -280)
